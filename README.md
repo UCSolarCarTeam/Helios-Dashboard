@@ -1,3 +1,3 @@
+# Helios-Dashboard
 
-Viscomm Team:
-Bryce Cayanan
+The Epsilon Dashboard displays information on the screens.
