@@ -1,3 +1,3 @@
 # Helios-Dashboard
 
-The Epsilon Dashboard displays information on the screens.
+The Helios Dashboard displays information on the screens.
