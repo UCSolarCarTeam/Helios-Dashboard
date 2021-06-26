@@ -60,7 +60,7 @@ Item {
 
                 while(yPosition < roadCanvas.height && baseNum < roadCanvas.height - config.spacing - config.height){
                     context.beginPath();
-                    yPosition = yPosition + config.spacing * config.height;
+                    yPosition += config.spacing * config.height;
                     context.moveTo(config.xPosition, yPosition);
                     context.lineTo(config.xPosition + config.width, yPosition);
                     context.lineTo(config.xPosition + config.width + 1 / config.spacing, yPosition + config.height);
