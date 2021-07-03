@@ -4,6 +4,7 @@ Item {
     width: 450
     height: 200
     property bool animationOn: true
+    property bool forward: true
     property var config: ({
                               xPosition: roadCanvas.width / 2,
                               width: 5,
@@ -26,7 +27,7 @@ Item {
                     requestAnimationFrame(startAnimation);
                 }
                 context.clearRect(0, 0, roadCanvas.width, roadCanvas.height);
-                let yPosition = -roadCanvas.height + baseNum;
+                let yPosition = forward ? -roadCanvas.height + baseNum : -baseNum;
 
                 context.beginPath();
                 context.moveTo(config.roadSlope, 0);
@@ -58,7 +59,7 @@ Item {
                 context.fillStyle = gradient;
                 context.fill();
 
-                while(yPosition < roadCanvas.height && baseNum < roadCanvas.height - config.spacing - config.height){
+                while(yPosition < roadCanvas.height){
                     context.beginPath();
                     yPosition += config.spacing * config.height;
                     context.moveTo(config.xPosition, yPosition);
@@ -71,7 +72,7 @@ Item {
                     context.fill();
                 }
                 baseNum += config.animationSpeed;
-                if(baseNum > roadCanvas.height - config.spacing - config.height) {
+                if((baseNum > roadCanvas.height - config.spacing - config.height) && forward) {
                     baseNum = 0;
                 }
             }
