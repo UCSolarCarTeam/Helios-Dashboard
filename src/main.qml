@@ -14,8 +14,11 @@ Window {
             GradientStop { position: 0.0; color: "#545454" }
             GradientStop { position: 0.5; color: "#656363" }
             GradientStop { position: 1.0; color: "#7B7979" }
-
         }
+
+        FaultList {
+        }
+
     }
 
 
