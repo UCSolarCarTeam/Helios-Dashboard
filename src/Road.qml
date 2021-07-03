@@ -1,8 +1,6 @@
 import QtQuick 2.15
 
-Item {
-    width: 450
-    height: 200
+Item { 
     property bool animationOn: true
     property bool forward: true
     property var config: ({
@@ -20,14 +18,15 @@ Item {
 
         onPaint: {
             let context = roadCanvas.getContext('2d');
-            let baseNum = 0;
+            let startPosition = 0;
+            let yPosition = 0;
 
             const startAnimation = () => {
                 if(animationOn) {
                     requestAnimationFrame(startAnimation);
                 }
                 context.clearRect(0, 0, roadCanvas.width, roadCanvas.height);
-                let yPosition = forward ? -roadCanvas.height + baseNum : -baseNum;
+                yPosition = forward ? -roadCanvas.height + startPosition : -startPosition;
 
                 context.beginPath();
                 context.moveTo(config.roadSlope, 0);
@@ -71,13 +70,13 @@ Item {
                     context.fillStyle = '#FFFFFF';
                     context.fill();
                 }
-                baseNum += config.animationSpeed;
-                if((baseNum > roadCanvas.height - config.spacing - config.height) && forward) {
-                    baseNum = 0;
+                startPosition += config.animationSpeed;
+                if((startPosition > roadCanvas.height - config.spacing - config.height) && forward) {
+                    startPosition = 0;
                 }
             }
 
-            startAnimation();
+            //startAnimation();
 
         }
     }

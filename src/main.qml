@@ -17,6 +17,8 @@ Window {
 
         }
         Road {
+            width: 450
+            height: 200
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
         }
