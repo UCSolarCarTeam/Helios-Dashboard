@@ -76,7 +76,7 @@ Item {
                 }
             }
 
-            //startAnimation();
+            startAnimation();
 
         }
     }
