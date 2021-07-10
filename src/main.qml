@@ -16,6 +16,17 @@ Window {
             GradientStop { position: 1.0; color: "#7B7979" }
 
         }
+
+        SignalBar {
+            height: 75
+            anchors {
+                left: parent.left
+                leftMargin: (parent.width/3)-100
+                right: parent.right
+                rightMargin: (parent.width/3)-100
+                top: parent.top
+            }
+        }
     }
 
 
