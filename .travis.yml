@@ -1,0 +1,45 @@
+dist: bionic
+sudo: required
+
+before_install:
+    - sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
+    - sudo apt-add-repository -y ppa:beineri/opt-qt-5.12.0-bionic
+    - sudo apt-get -qq update
+    - sudo apt-get -y install
+        g++-4.8
+        libc6-i386
+        qt512tools
+        qt512svg
+        qt512webengine
+        qt512serialport
+        qtdeclarative5-dev
+        libboost-chrono-dev
+        libboost-system-dev
+        libgl1-mesa-dev
+        python3-pip
+        python3-setuptools
+    - PATH="/opt/qt512/bin:$PATH"
+    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+    - qt512-env.sh
+
+install:
+    # install conan (Currently does not work)
+    #- pip3 install conan
+    #- conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
+    
+    # install astyle
+    - cd /tmp
+    - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
+    - (cd ./astyle/build/gcc && make release && sudo make install)
+
+script: 
+    - cd $TRAVIS_BUILD_DIR
+    # Astyle not yet intergrated
+    #- "! (astyle *.h *.cpp -r --dry-run --options=astylerc | grep Formatted)"
+    - mkdir build && cd build
+    #- conan install .. --build=missing
+    - qmake ../src/
+    - make
+    - make check
+
+language: cpp
