@@ -1,5 +1,3 @@
-# Epsilon-Dashboard .travis.yml file
-
 dist: bionic
 sudo: required
 
@@ -14,6 +12,7 @@ before_install:
         qt512svg
         qt512webengine
         qt512serialport
+        qtdeclarative5-dev
         libboost-chrono-dev
         libboost-system-dev
         libgl1-mesa-dev
@@ -24,10 +23,10 @@ before_install:
     - qt512-env.sh
 
 install:
-    # install conan
-    - pip3 install conan
-    - conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
-
+    # install conan (Currently does not work)
+    #- pip3 install conan
+    #- conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
+    
     # install astyle
     - cd /tmp
     - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
@@ -35,9 +34,10 @@ install:
 
 script: 
     - cd $TRAVIS_BUILD_DIR
-    - "! (astyle *.h *.cpp -r --dry-run --options=astylerc | grep Formatted)"
+    # Astyle not yet intergrated
+    #- "! (astyle *.h *.cpp -r --dry-run --options=astylerc | grep Formatted)"
     - mkdir build && cd build
-    - conan install .. --build=missing
+    #- conan install .. --build=missing
     - qmake ../src/
     - make
     - make check
