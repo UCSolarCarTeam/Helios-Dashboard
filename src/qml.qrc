@@ -2,5 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Road.qml</file>
+        <file>SignalBar.qml</file>
+        <file>images/highBeamOff.svg</file>
+        <file>images/highBeamOn.svg</file>
+        <file>images/signalOff.svg</file>
+        <file>images/signalOn.svg</file>
     </qresource>
 </RCC>
