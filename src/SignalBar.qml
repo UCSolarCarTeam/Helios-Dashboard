@@ -3,14 +3,16 @@ import QtQuick 2.15
 Item {
     id: container
     //Consider enums/constants for properties?
-    property string signal: "none"
-    property string lights: "off"
+    property string signalState: "none"
+    property string lightsState: "off"
     property string gear: "n"
+
+    property double highBeamScale: 0.15
+    property double signalScale: 0.2
 
     Image {
         id: leftSignal
         source: "images/signalOff.svg"
-        mirror: true
         anchors {
             verticalCenter: parent.verticalCenter
             left: parent.left
@@ -18,15 +20,14 @@ Item {
         }
         onStatusChanged: {
           if (status == Image.Ready) {
-             width = sourceSize.width*1.3;
-             height = sourceSize.height*1.3;
+             width = sourceSize.width*signalScale;
+             height = sourceSize.height*signalScale;
           }
         }
 
         Image {
             id: leftSignalOn
             source: "images/signalOn.svg"
-            mirror: true
             anchors {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
@@ -34,12 +35,12 @@ Item {
             }
             onStatusChanged: {
               if (status == Image.Ready) {
-                 width = sourceSize.width*1.3;
-                 height = sourceSize.height*1.3;
+                 width = sourceSize.width*signalScale;
+                 height = sourceSize.height*signalScale;
               }
             }
             visible: {
-                switch(signal){
+                switch(signalState){
                 case "both":
                 case "left":
                     return true;
@@ -53,6 +54,7 @@ Item {
     Image {
         id: rightSignal
         source: "images/signalOff.svg"
+        mirror: true
         anchors {
             verticalCenter: parent.verticalCenter
             right: parent.right
@@ -60,14 +62,15 @@ Item {
         }
         onStatusChanged: {
           if (status == Image.Ready) {
-             width = sourceSize.width*1.3;
-             height = sourceSize.height*1.3;
+             width = sourceSize.width*signalScale;
+             height = sourceSize.height*signalScale;
           }
         }
 
         Image {
             id: rightSignalOn
             source: "images/signalOn.svg"
+            mirror: true
             anchors {
                 verticalCenter: parent.verticalCenter
                 right: parent.right
@@ -75,12 +78,12 @@ Item {
             }
             onStatusChanged: {
               if (status == Image.Ready) {
-                 width = sourceSize.width*1.3;
-                 height = sourceSize.height*1.3;
+                 width = sourceSize.width*signalScale;
+                 height = sourceSize.height*signalScale;
               }
             }
             visible: {
-                switch(signal){
+                switch(signalState){
                 case "both":
                 case "right":
                     return true;
@@ -101,8 +104,8 @@ Item {
         }
         onStatusChanged: {
           if (status == Image.Ready) {
-             width = sourceSize.width*1.3;
-             height = sourceSize.height*1.3;
+             width = sourceSize.width*highBeamScale;
+             height = sourceSize.height*highBeamScale;
           }
         }
 
@@ -116,12 +119,12 @@ Item {
             }
             onStatusChanged: {
               if (status == Image.Ready) {
-                 width = sourceSize.width*1.3;
-                 height = sourceSize.height*1.3;
+                 width = sourceSize.width*highBeamScale;
+                 height = sourceSize.height*highBeamScale;
               }
             }
             visible: {
-                switch(lights){
+                switch(lightsState){
                 case "on":
                     return true;
                 default:
@@ -154,7 +157,7 @@ Item {
                 family: "Amaranath"
                 pointSize: gear === "d" ? 55 : 15
                 weight: gear === "d" ? Font.DemiBold : Font.Normal
-                italic: gear === "d" ? true : true
+                italic: gear === "d" ? false : true
             }
         }
 
