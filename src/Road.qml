@@ -8,7 +8,7 @@ Item {
                               width: 5,
                               spacing: 1.5,
                               height: 20,
-                              animationSpeed: 2,
+                              animationSpeed: 1.25,
                               roadSlope: 150,
                               endLineWidth: 4,
                           })
@@ -23,11 +23,12 @@ Item {
 
             const startAnimation = () => {
                 if(animationOn) {
-                    requestAnimationFrame(startAnimation);
+                    requestAnimationFrame(startAnimation); // if animation is on, keep calling startAnimation at each repaint
                 }
-                context.clearRect(0, 0, roadCanvas.width, roadCanvas.height);
+                context.clearRect(0, 0, roadCanvas.width, roadCanvas.height); // clear painting from previous frame
                 yPosition = forward ? -roadCanvas.height + startPosition : -startPosition;
 
+                // draw left border of the road
                 context.beginPath();
                 context.moveTo(config.roadSlope, 0);
                 context.lineTo(0, roadCanvas.height);
@@ -35,7 +36,7 @@ Item {
                 context.strokeStyle = '#FFFFFF';
                 context.stroke();
 
-
+                // draw right border of the road
                 context.beginPath();
                 context.moveTo(roadCanvas.width - config.roadSlope, 0);
                 context.lineTo(roadCanvas.width, roadCanvas.height);
@@ -43,11 +44,13 @@ Item {
                 context.strokeStyle = '#FFFFFF';
                 context.stroke();
 
+                // create linear gradient of the road
                 const gradient = context.createLinearGradient(0, 0, 0, 200);
                 gradient.addColorStop(0, "#FF5C5A5A");
                 gradient.addColorStop(0.4, "#00121212");
                 gradient.addColorStop(1, "#030303");
 
+                // fill road with created linear gradient
                 context.beginPath();
                 context.moveTo(config.roadSlope, 0);
                 context.lineTo(0, roadCanvas.height);
@@ -58,6 +61,7 @@ Item {
                 context.fillStyle = gradient;
                 context.fill();
 
+                // draw road tiles
                 while(yPosition < roadCanvas.height){
                     context.beginPath();
                     yPosition += config.spacing * config.height;
@@ -70,7 +74,10 @@ Item {
                     context.fillStyle = '#FFFFFF';
                     context.fill();
                 }
-                startPosition += config.animationSpeed;
+                startPosition += config.animationSpeed; // this will determine the starting yPosition of the next frame
+
+                // when yPosition gets so large in the forward motion for the start of the tiles to be off screen,
+                // reset startPosition back to 0
                 if((startPosition > roadCanvas.height - config.spacing - config.height) && forward) {
                     startPosition = 0;
                 }
