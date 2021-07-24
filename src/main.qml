@@ -25,6 +25,7 @@ Window {
                 right: parent.right
                 rightMargin: (parent.width/3)-100
                 top: parent.top
+                topMargin: 5
             }
         }
     }
