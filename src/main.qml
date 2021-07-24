@@ -16,6 +16,15 @@ Window {
             GradientStop { position: 1.0; color: "#7B7979" }
 
         }
+
+        Road {
+            width: 450
+            height: 200
+            anchors {
+                bottom: parent.bottom
+                horizontalCenter: parent.horizontalCenter
+            }
+        }
     }
 
 
