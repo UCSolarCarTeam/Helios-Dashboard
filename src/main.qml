@@ -36,6 +36,18 @@ Window {
                 topMargin: 5
             }
         }
+
+        SignalBar {
+            height: 75
+            anchors {
+                left: parent.left
+                leftMargin: (parent.width/3)-100
+                right: parent.right
+                rightMargin: (parent.width/3)-100
+                top: parent.top
+                topMargin: 5
+            }
+        }
     }
 
 
