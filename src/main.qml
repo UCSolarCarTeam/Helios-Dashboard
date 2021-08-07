@@ -15,7 +15,6 @@ Window {
             GradientStop { position: 0.5; color: "#656363" }
             GradientStop { position: 1.0; color: "#7B7979" }
         }
-
         Road {
             width: 450
             height: 200
