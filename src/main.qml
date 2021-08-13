@@ -18,5 +18,9 @@ Window {
         }
     }
 
-
+    Hexagon
+    {
+        x: 10
+        y: 0
+    }
 }
