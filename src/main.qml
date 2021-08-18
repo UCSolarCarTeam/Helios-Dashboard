@@ -21,5 +21,29 @@ Window {
 
     }
 
+        Road {
+            width: 450
+            height: 200
+            anchors {
+                bottom: parent.bottom
+                horizontalCenter: parent.horizontalCenter
+            }
+        }
 
+        SignalBar {
+            signalState: "none"
+            lightsState: "off"
+            gear: "n"
+
+            height: 75
+            anchors {
+                left: parent.left
+                leftMargin: (parent.width/3)-100
+                right: parent.right
+                rightMargin: (parent.width/3)-100
+                top: parent.top
+                topMargin: 5
+            }
+        }
+    }
 }

@@ -6,5 +6,11 @@
         <file>images/LeftMotor.svg</file>
         <file>images/Battery.svg</file>
         <file>images/RightMotor.svg</file>
+        <file>Road.qml</file>
+        <file>images/highBeamOff.svg</file>
+        <file>images/highBeamOn.svg</file>
+        <file>images/signalOff.svg</file>
+        <file>images/signalOn.svg</file>
+        <file>SignalBar.qml</file>
     </qresource>
 </RCC>
