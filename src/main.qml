@@ -14,13 +14,36 @@ Window {
             GradientStop { position: 0.0; color: "#545454" }
             GradientStop { position: 0.5; color: "#656363" }
             GradientStop { position: 1.0; color: "#7B7979" }
-
         }
-    }
 
-    Hexagon
-    {
-        x: 10
-        y: 0
+        Road {
+            width: 450
+            height: 200
+            anchors {
+                bottom: parent.bottom
+                horizontalCenter: parent.horizontalCenter
+            }
+        }
+
+        Hexagon {
+            x: 10
+            y: 10
+        }
+
+        SignalBar {
+            signalState: "none"
+            lightsState: "off"
+            gear: "n"
+
+            height: 75
+            anchors {
+                left: parent.left
+                leftMargin: (parent.width/3)-100
+                right: parent.right
+                rightMargin: (parent.width/3)-100
+                top: parent.top
+                topMargin: 5
+            }
+        }
     }
 }
