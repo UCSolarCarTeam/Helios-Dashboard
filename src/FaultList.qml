@@ -1,101 +1,81 @@
 import QtQuick 2.15
 
+
 Item {
-    property int currentFault: 0
-       Rectangle {
-           x: 79
-           y: 110
-           width: 180
-           height: 256
-           color: "transparent"
-           Image {
-               id: leftMotor
-               x: 8
-               y: 14
-               source: "images/LeftMotor.svg"
-               fillMode: Image.PreserveAspectFit
-           }
 
-           Image {
-               id: battery
-               x: 90
-               y: 18
-               source: "images/Battery.svg"
-               fillMode: Image.PreserveAspectFit
-           }
+    function delay(delayTime, callback) {
+        timer.interval = delayTime;
+        timer.repeat = true;
+        timer.triggered.connect(callback);
+        timer.start();
+    }
 
-           Image {
-               id: rightMotor
-               x: 169
-               y: 14
-               source: "images/RightMotor.svg"
-               fillMode: Image.PreserveAspectFit
-           }
+    Timer {
+        id: timer
+    }
 
-           Rectangle {
-               x: 5
-               y: 58
-               width: parent.width + 35
-               color: "#ffffff"
-               height: 3
-           }
+    Rectangle {
+        y: faultsListView.model.count > 3 ? root.height - (100 + 60 *3) : root.height - (100 + 60 * faultsListView.model.count)
+        width: parent.width
+        height:80
+        clip: faultsListView.model.count === 0
+        color: "transparent"
 
-           Component {
-               id: faultsDelegate
-               Item {
-                   width: 180
-                   height: 60
-                   Column {
-                       Text {
-                           id: faultText
-                           font.family: "Oswald"
-                           font.pixelSize: 25
-                           text: fault.toUpperCase()
-                           color: "#ffffff"
-                       }
-                       Rectangle {
-                           color: "#ffffff"
-                           width: faultText.width + 10
-                           height: 3
-                           anchors.top: faultText.bottom
-                           anchors.topMargin: 18
-                       }
-                   }
-               }
-           }
+        Image {
+            id: leftMotor
+            x: 8
+            y: 14
+            source: "images/LeftMotor.svg"
+            fillMode: Image.PreserveAspectFit
+        }
 
-           ListView {
-               x: 7
-               y: 74
-               width: 180
-               height: 178
+        Image {
+            id: battery
+            x: 90
+            y: 18
+            source: "images/Battery.svg"
+            fillMode: Image.PreserveAspectFit
+        }
 
-               model: FaultListModel {}
-               delegate: faultsDelegate
+        Image {
+            id: rightMotor
+            x: 170
+            y: 14
+            source: "images/RightMotor.svg"
+            fillMode: Image.PreserveAspectFit
+        }
 
+        Rectangle {
+            y: 60
+            width: parent.width
+            color: "#ffffff"
+            height: 3
+        }
 
-               add: Transition {
-                   NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 300 }
-               }
-               move: Transition {
-                   NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 300 }
-               }
+        ListView {
+            id: faultsListView
+            y: 75
+            width: parent.width
+            height: 180
+            clip: true
+            model: FaultListModel {}
+            delegate: FaultListDelegate {}
+            add: Transition {
+                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 300 }
+            }
+            move: Transition {
+                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 300 }
+            }
 
-               focus: true
+            focus: true
+        }
 
-
-               Keys.onSpacePressed: {
-                   if(currentFault < 6) {
-                       model.append({ "fault": "sample fault " + parseInt(currentFault + 1) });
-                       currentFault++;
-
-                   }
-                   if(model.count > 3) {
-                       model.move(model.count - 1, 0, 1);
-
-                   }
-               }
-           }
-
-       }
+        Component.onCompleted: {
+            if(faultsListView.model.count > 3) {
+                delay(1500, function() {
+                    faultsListView.model.move(faultsListView.model.count - 1, 0, 1);
+                });
+            }
+        }
+    }
 }

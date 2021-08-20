@@ -12,5 +12,6 @@
         <file>images/signalOff.svg</file>
         <file>images/signalOn.svg</file>
         <file>SignalBar.qml</file>
+        <file>FaultListDelegate.qml</file>
     </qresource>
 </RCC>

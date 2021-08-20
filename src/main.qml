@@ -16,34 +16,41 @@ Window {
             GradientStop { position: 1.0; color: "#7B7979" }
         }
 
-        FaultList {
-        }
-
     }
 
-        Road {
-            width: 450
-            height: 200
-            anchors {
-                bottom: parent.bottom
-                horizontalCenter: parent.horizontalCenter
-            }
+    Road {
+        width: 450
+        height: 200
+        anchors {
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
         }
+    }
 
-        SignalBar {
-            signalState: "none"
-            lightsState: "off"
-            gear: "n"
+    FaultList {
+        id: faultList
+        width: 215
+        anchors {
+            bottom: root.bottom
+            right: parent.right
+            rightMargin: parent.width / 16
+        }
+    }
 
-            height: 75
-            anchors {
-                left: parent.left
-                leftMargin: (parent.width/3)-100
-                right: parent.right
-                rightMargin: (parent.width/3)-100
-                top: parent.top
-                topMargin: 5
-            }
+    SignalBar {
+        signalState: "none"
+        lightsState: "off"
+        gear: "n"
+
+        height: 75
+        anchors {
+            left: parent.left
+            leftMargin: (parent.width / 3) - 100
+            right: parent.right
+            rightMargin: (parent.width / 3) - 100
+            top: parent.top
+            topMargin: 5
         }
     }
 }
+
