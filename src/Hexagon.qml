@@ -14,11 +14,11 @@ Item {
     width: 410
     height: 400
 
-//    FontLoader
-//    {
-//        id: dashBoardFont
-//        source: "font/Oswald/Oswald-VariableFont_wght.ttf"
-//    }
+    FontLoader
+    {
+        id: dashBoardFont
+        source: "font/Oswald/Oswald-VariableFont_wght.ttf"
+    }
 
 
     Canvas {
@@ -72,8 +72,8 @@ Item {
 
             font {
                 pointSize: canvas.fontSize - canvas.titleFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             anchors {
                 top: canvas.top
@@ -90,8 +90,8 @@ Item {
 
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: motorZeroNum.x - motorZeroLabel.width - 5
             y: busCurrentLabel.y +  canvas.labelNumMargin
@@ -104,8 +104,8 @@ Item {
 
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: canvas.width / 2 - 10 - motorZeroNum.width
             y: motorZeroLabel.y
@@ -118,8 +118,8 @@ Item {
 
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: canvas.width / 2 + 10
             y: motorZeroLabel.y
@@ -132,8 +132,8 @@ Item {
 
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: motorOneLabel.x + motorOneLabel.width + 5
             y: motorZeroLabel.y
@@ -145,8 +145,8 @@ Item {
             color: "white"
             font {
                 pointSize: canvas.fontSize - canvas.titleFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             anchors {
                 bottom: canvas.verticalCenter
@@ -161,8 +161,8 @@ Item {
             color: "white"
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             anchors {
                 horizontalCenter: canvas.horizontalCenter
@@ -176,8 +176,8 @@ Item {
             text: "45 °C"
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: maxTempLabel.x + maxTempLabel.width / 2 - maxTempNum.width / 2
             y: maxTempLabel.y + 30
@@ -189,8 +189,8 @@ Item {
             color: "white"
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: maxTempLabel.x - maxTempLabel.width
             y: maxTempLabel.y
@@ -203,8 +203,8 @@ Item {
             font
             {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: maxVoltLabel.x + maxVoltLabel.width / 2 - maxVoltNum.width / 2
             y: maxTempLabel.y + 30
@@ -216,8 +216,8 @@ Item {
             color: "white"
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: maxTempLabel.x + maxTempLabel.width + canvas.cellItemsMargin
             y: maxTempLabel.y
@@ -230,8 +230,8 @@ Item {
             minimumPixelSize: 16
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             x: minVoltLabel.x + minVoltLabel.width / 2 - minVoltNum.width / 2
             y: maxTempLabel.y + 30
@@ -243,8 +243,8 @@ Item {
             color: "white"
             font {
                 pointSize: canvas.fontSize - canvas.titleFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             anchors {
                 bottom: canvas.bottom
@@ -259,8 +259,8 @@ Item {
             color: "white"
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
-                //weight: Font.SemiBold
-                //family: dashBoardFont.name
+                weight: Font.SemiBold
+                family: dashBoardFont.name
             }
             anchors {
                 bottom: canvas.bottom
