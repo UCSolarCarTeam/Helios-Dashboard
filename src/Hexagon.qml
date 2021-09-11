@@ -1,8 +1,9 @@
 import QtQuick 2.15
 import QtQuick.Shapes 1.14
 
-Item
-{
+Item {
+    id: hexagon
+
     property int netPowerDraw: 189
     property int maxTemp: 45
     property int maxVolt: 180
@@ -10,7 +11,6 @@ Item
     property int motorZeroCurrent: 879
     property int motorOneCurrent: 879
 
-    id: hexagon
     width: 410
     height: 400
 
@@ -21,22 +21,20 @@ Item
 //    }
 
 
-    Canvas
-    {
-        property int fontSize: 22
-        property int subFontDiff: 6
+    Canvas {
+        property int fontSize: 24
+        property int titleFontDiff: 6
+        property int subFontDiff: 5
         property int cellItemsMargin: 20
         property int labelNumMargin: 45
 
         id: canvas
-        anchors
-        {
+        anchors {
             fill: hexagon
             horizontalCenter: parent.horizontalCenter
             verticalCenter: parent.verticalCenter
         }
-        onPaint:
-        {
+        onPaint: {
             var context = canvas.getContext('2d');
             const x = hexagon.width / 2;
             const y = hexagon.height / 2;
@@ -45,8 +43,7 @@ Item
             context.lineWidth = 4;
 
             context.beginPath();
-            for (var i = 0; i < 6; i++)
-            {
+            for (var i = 0; i < 6; i++) {
                 context.lineTo(x + radius * Math.cos(angle * i), y + radius * Math.sin(angle * i));
             }
             context.closePath();
@@ -68,35 +65,30 @@ Item
             context.stroke();
         }
 
-        Text
-        {
+        Text {
             id: busCurrentLabel
             text: qsTr("Bus Current")
             color: "white"
 
-            font
-            {
-                pointSize: canvas.fontSize
+            font {
+                pointSize: canvas.fontSize - canvas.titleFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
             }
-            anchors
-            {
+            anchors {
                 top: canvas.top
-                topMargin: 30
+                topMargin: 55
                 horizontalCenter: canvas.horizontalCenter
             }
         }
 
 
-        Text
-        {
+        Text {
             id: motorZeroLabel
             text: qsTr("M0:")
             color: "white"
 
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -105,14 +97,12 @@ Item
             y: busCurrentLabel.y +  canvas.labelNumMargin
         }
 
-        Text
-        {
+        Text {
             id: motorZeroNum
             text: qsTr(String(motorZeroCurrent).padStart(3, '0') + " A")
             color: "white"
 
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -121,14 +111,12 @@ Item
             y: motorZeroLabel.y
         }
 
-        Text
-        {
+        Text {
             id: motorOneLabel
             text: qsTr("M1:")
             color: "white"
 
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -137,14 +125,12 @@ Item
             y: motorZeroLabel.y
         }
 
-        Text
-        {
+        Text {
             id: motorOneNum
             text: qsTr(String(motorOneCurrent).padStart(3, '0') + " A")
             color: "white"
 
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -153,50 +139,42 @@ Item
             y: motorZeroLabel.y
         }
 
-        Text
-        {
+        Text {
             id: cellLabel
             text: qsTr("Cell")
             color: "white"
-            font
-            {
-                pointSize: canvas.fontSize
+            font {
+                pointSize: canvas.fontSize - canvas.titleFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
             }
-            anchors
-            {
+            anchors {
                 bottom: canvas.verticalCenter
                 bottomMargin: 20
                 horizontalCenter: canvas.horizontalCenter
             }
         }
 
-        Text
-        {
+        Text {
             id: maxTempLabel
             text: qsTr("Max Temp")
             color: "white"
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
             }
-            anchors
-            {
+            anchors {
                 horizontalCenter: canvas.horizontalCenter
             }
             y: cellLabel.y + canvas.labelNumMargin
         }
 
-        Text
-        {
+        Text {
             id: maxTempNum
-            text: qsTr(String(maxTemp).padStart(2, '0') + " °C")
             color: "white"
-            font
-            {
+            text: "45 °C"
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -205,13 +183,11 @@ Item
             y: maxTempLabel.y + 30
         }
 
-        Text
-        {
+        Text {
             id: maxVoltLabel
             text: qsTr("Max Volt")
             color: "white"
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -220,8 +196,7 @@ Item
             y: maxTempLabel.y
         }
 
-        Text
-        {
+        Text {
             id: maxVoltNum
             text: qsTr(String(maxVolt).padStart(3, '0') + " V")
             color: "white"
@@ -235,13 +210,11 @@ Item
             y: maxTempLabel.y + 30
         }
 
-        Text
-        {
+        Text {
             id: minVoltLabel
             text: qsTr("Min Volt")
             color: "white"
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -250,13 +223,12 @@ Item
             y: maxTempLabel.y
         }
 
-        Text
-        {
+        Text {
             id: minVoltNum
-            text: qsTr(String(minVolt).padStart(3, '0') + " V")
             color: "white"
-            font
-            {
+            text: "177 V"
+            minimumPixelSize: 16
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
@@ -265,40 +237,34 @@ Item
             y: maxTempLabel.y + 30
         }
 
-        Text
-        {
+        Text {
             id: powerDrawLabel
             text: qsTr("Net Power Draw")
             color: "white"
-            font
-            {
-                pointSize: canvas.fontSize
+            font {
+                pointSize: canvas.fontSize - canvas.titleFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
             }
-            anchors
-            {
+            anchors {
                 bottom: canvas.bottom
-                bottomMargin: 70
+                bottomMargin: 95
                 horizontalCenter: canvas.horizontalCenter
             }
         }
 
-        Text
-        {
+        Text {
             id: powerDrawNum
             text: qsTr(String(hexagon.netPowerDraw).padStart(3, '0') + " W")
             color: "white"
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 //weight: Font.SemiBold
                 //family: dashBoardFont.name
             }
-            anchors
-            {
+            anchors {
                 bottom: canvas.bottom
-                bottomMargin: 40
+                bottomMargin: powerDrawLabel.anchors.bottomMargin - 40
                 horizontalCenter: canvas.horizontalCenter
             }
         }
