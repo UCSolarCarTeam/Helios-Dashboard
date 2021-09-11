@@ -4,7 +4,7 @@ import QtQuick 2.15
 ListModel {
     id: faultsModel
     ListElement {
-        fault: "sample fault 1"
+        fault: "sample fault ddddddddddddddddddd 1"
     }
     ListElement {
         fault: "sample fault 2"

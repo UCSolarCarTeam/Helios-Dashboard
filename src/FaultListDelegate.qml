@@ -3,17 +3,17 @@ import QtQuick 2.0
 Component {
     id: faultsDelegate
     Item {
+        id: faultsDelegateItem
         width: faultList.width
         height: 60
         Column {
             Text {
                 id: faultText
                 font.family: "Oswald" // will edit it when the font pr is merged
-                font.pixelSize: 25
+                font.pixelSize: 20
                 text: fault.toUpperCase()
                 color: "#ffffff"
-                anchors.left: parent.left
-                anchors.leftMargin: 15
+                anchors.horizontalCenter: parent.horizontalCenter
             }
             Rectangle {
                 color: "transparent"
@@ -23,7 +23,7 @@ Component {
 
             Rectangle {
                 color: "#ffffff"
-                width: faultText.width + 30
+                width: faultList.width
                 height: 3
             }
         }

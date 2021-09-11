@@ -29,7 +29,7 @@ Window {
 
     FaultList {
         id: faultList
-        width: 215
+        width: 250
         anchors {
             bottom: root.bottom
             right: parent.right
