@@ -23,7 +23,7 @@ Item {
 
         Image {
             id: leftMotor
-            x: 8
+            x: 18
             y: 14
             source: "images/LeftMotor.svg"
             fillMode: Image.PreserveAspectFit
@@ -31,7 +31,7 @@ Item {
 
         Image {
             id: battery
-            x: 90
+            x: 100
             y: 18
             source: "images/Battery.svg"
             fillMode: Image.PreserveAspectFit
@@ -39,7 +39,7 @@ Item {
 
         Image {
             id: rightMotor
-            x: 170
+            x: 180
             y: 14
             source: "images/RightMotor.svg"
             fillMode: Image.PreserveAspectFit

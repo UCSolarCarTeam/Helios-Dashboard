@@ -5,16 +5,20 @@ Component {
     Item {
         id: faultsDelegateItem
         width: faultList.width
-        height: 60
+        height: faultText.height + 35
         Column {
+
             Text {
                 id: faultText
                 font.family: "Oswald" // will edit it when the font pr is merged
-                font.pixelSize: 20
+                font.pixelSize: 18
+                width: Math.min(contentWidth, faultList.width - 50)
+                wrapMode: Text.WordWrap
                 text: fault.toUpperCase()
                 color: "#ffffff"
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
             Rectangle {
                 color: "transparent"
                 width: faultText.width + 30
