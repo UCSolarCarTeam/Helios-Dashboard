@@ -248,7 +248,7 @@ Item {
             }
             anchors {
                 bottom: canvas.bottom
-                bottomMargin: 95
+                bottomMargin: 9
                 horizontalCenter: canvas.horizontalCenter
             }
         }
