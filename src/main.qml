@@ -1,5 +1,6 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
+import QtQuick 2.12
+import QtQuick.Controls 2.4
+import QtQuick.Window 2.12
 
 Window {
     id: root
@@ -9,6 +10,7 @@ Window {
     title: qsTr("Helios Dashboard")
 
     Rectangle {
+        id: background
         anchors.fill: parent
         gradient: Gradient {
             GradientStop { position: 0.0; color: "#545454" }
@@ -17,6 +19,7 @@ Window {
         }
 
         Road {
+            id: road
             width: 450
             height: 200
             anchors {
@@ -25,12 +28,8 @@ Window {
             }
         }
 
-        Hexagon {
-            x: 10
-            y: 10
-        }
-
         SignalBar {
+            id: signalBar
             signalState: "none"
             lightsState: "off"
             gear: "n"
@@ -44,6 +43,31 @@ Window {
                 top: parent.top
                 topMargin: 5
             }
+        }
+
+        Battery {
+            id: battery
+            width: 260
+            height: 53
+            batteryPercentage: slider.value
+
+            anchors {
+                horizontalCenter: background.horizontalCenter
+                verticalCenter: background.verticalCenter
+                horizontalCenterOffset: 5
+                verticalCenterOffset: background.height * 1/4
+            }
+        }
+
+        //To be removed after Battery merge into Master
+        Slider{
+            id: slider
+            width: 100
+            height: 10
+            x: 10
+            y: 10
+            handle: battery.batteryPercentage
+
         }
     }
 }
