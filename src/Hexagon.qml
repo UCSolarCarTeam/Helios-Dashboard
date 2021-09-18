@@ -22,13 +22,15 @@ Item {
 
 
     Canvas {
+        id: canvas
+
         property int fontSize: 27
         property int titleFontDiff: 6
         property int subFontDiff: 5
+        property int marginRatio: 9
         property int cellItemsMargin: 20
-        property int labelNumMargin: 45
+        property int labelNumMargin: hexagon.height / marginRatio
 
-        id: canvas
         anchors {
             fill: hexagon
             horizontalCenter: parent.horizontalCenter
@@ -77,7 +79,7 @@ Item {
             }
             anchors {
                 top: canvas.top
-                topMargin: 45
+                topMargin: hexagon.height / canvas.marginRatio
                 horizontalCenter: canvas.horizontalCenter
             }
         }
@@ -150,7 +152,7 @@ Item {
             }
             anchors {
                 bottom: canvas.verticalCenter
-                bottomMargin: 15
+                bottomMargin: hexagon.height / canvas.marginRatio / 3
                 horizontalCenter: canvas.horizontalCenter
             }
         }
@@ -180,7 +182,7 @@ Item {
                 family: dashBoardFont.name
             }
             x: maxTempLabel.x + maxTempLabel.width / 2 - maxTempNum.width / 2
-            y: maxTempLabel.y + 30
+            y: maxTempLabel.y + font.pointSize + 8
         }
 
         Text {
@@ -207,7 +209,7 @@ Item {
                 family: dashBoardFont.name
             }
             x: maxVoltLabel.x + maxVoltLabel.width / 2 - maxVoltNum.width / 2
-            y: maxTempLabel.y + 30
+            y: maxTempLabel.y + font.pointSize + 8
         }
 
         Text {
@@ -234,7 +236,7 @@ Item {
                 family: dashBoardFont.name
             }
             x: minVoltLabel.x + minVoltLabel.width / 2 - minVoltNum.width / 2
-            y: maxTempLabel.y + 30
+            y: maxTempLabel.y + font.pointSize + 8
         }
 
         Text {
@@ -248,7 +250,7 @@ Item {
             }
             anchors {
                 bottom: canvas.bottom
-                bottomMargin: 90
+                bottomMargin: hexagon.height / canvas.marginRatio * 2
                 horizontalCenter: canvas.horizontalCenter
             }
         }
@@ -264,8 +266,6 @@ Item {
             }
             y: powerDrawLabel.y + canvas.labelNumMargin
             anchors {
-//                bottom: canvas.bottom
-//                bottomMargin: powerDrawLabel.anchors.bottomMargin - 40
                 horizontalCenter: canvas.horizontalCenter
             }
         }
