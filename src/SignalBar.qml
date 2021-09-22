@@ -1,7 +1,7 @@
 import QtQuick 2.15
 
 Item {
-    id: container
+    id: signalBarContainer
     //Consider enums/constants for properties?
     property string signalState: "none"
     property string lightsState: "off"

@@ -16,6 +16,15 @@ Window {
             GradientStop { position: 1.0; color: "#7B7979" }
         }
 
+        SpeedNumber {
+            anchors {
+                top: parent.top
+                topMargin: 20
+                horizontalCenter: parent.horizontalCenter
+            }
+
+        }
+
         Road {
             width: 450
             height: 200
