@@ -7,5 +7,6 @@
         <file>images/signalOff.svg</file>
         <file>images/signalOn.svg</file>
         <file>SignalBar.qml</file>
+        <file>ContactorInfo.qml</file>
     </qresource>
 </RCC>

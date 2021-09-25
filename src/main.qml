@@ -17,6 +17,7 @@ Window {
         }
 
         Road {
+            id: road
             width: 450
             height: 200
             anchors {
@@ -26,10 +27,10 @@ Window {
         }
 
         SignalBar {
+            id: signalBar
             signalState: "none"
             lightsState: "off"
             gear: "n"
-
             height: 75
             anchors {
                 left: parent.left
@@ -38,6 +39,19 @@ Window {
                 rightMargin: (parent.width/3)-100
                 top: parent.top
                 topMargin: 5
+            }
+        }
+
+        ContactorInfo {
+            id: contactorInfo
+            contactorState: "run + solar"
+            height: 100
+            anchors {
+                right: parent.right
+                rightMargin: 5
+                left: signalBar.right
+                leftMargin: 5
+                top: parent.top
             }
         }
     }
