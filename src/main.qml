@@ -24,6 +24,7 @@ Window {
                 horizontalCenter: parent.horizontalCenter
             }
         }
+
         SignalBar {
             signalState: "none"
             lightsState: "off"
@@ -39,6 +40,7 @@ Window {
                 topMargin: 5
             }
         }
+
         Hexagon {
             x: 10
             y: 0
