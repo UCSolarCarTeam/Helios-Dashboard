@@ -45,10 +45,5 @@ Window {
                 topMargin: 5
             }
         }
-
-        Hexagon {
-            x: 10
-            y: 0
-        }
     }
 }
