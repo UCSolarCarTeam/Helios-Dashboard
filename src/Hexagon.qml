@@ -10,16 +10,10 @@ Item {
     property int minVolt: 177
     property int motorZeroCurrent: 879
     property int motorOneCurrent: 879
+    property FontLoader hexagonFont
 
     width: 410
     height: 400
-
-    FontLoader
-    {
-        id: dashBoardFont
-        source: "fonts/Oswald/Oswald-VariableFont_wght.ttf"
-    }
-
 
     Canvas {
         id: canvas
@@ -75,7 +69,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.titleFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             anchors {
                 top: canvas.top
@@ -93,7 +87,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: motorZeroNum.x - motorZeroLabel.width - 5
             y: busCurrentLabel.y + canvas.labelNumMargin
@@ -107,7 +101,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: canvas.width / 2 - 10 - motorZeroNum.width
             y: motorZeroLabel.y
@@ -121,7 +115,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: canvas.width / 2 + 10
             y: motorZeroLabel.y
@@ -135,7 +129,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: motorOneLabel.x + motorOneLabel.width + 5
             y: motorZeroLabel.y
@@ -148,7 +142,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.titleFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             anchors {
                 bottom: canvas.verticalCenter
@@ -164,7 +158,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             anchors {
                 horizontalCenter: canvas.horizontalCenter
@@ -179,7 +173,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: maxTempLabel.x + maxTempLabel.width / 2 - maxTempNum.width / 2
             y: maxTempLabel.y + font.pointSize + 8
@@ -192,7 +186,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: maxTempLabel.x - maxTempLabel.width
             y: maxTempLabel.y
@@ -206,7 +200,7 @@ Item {
             {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: maxVoltLabel.x + maxVoltLabel.width / 2 - maxVoltNum.width / 2
             y: maxTempLabel.y + font.pointSize + 8
@@ -219,7 +213,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: maxTempLabel.x + maxTempLabel.width + canvas.cellItemsMargin
             y: maxTempLabel.y
@@ -233,7 +227,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             x: minVoltLabel.x + minVoltLabel.width / 2 - minVoltNum.width / 2
             y: maxTempLabel.y + font.pointSize + 8
@@ -246,7 +240,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.titleFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             anchors {
                 bottom: canvas.bottom
@@ -262,7 +256,7 @@ Item {
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
-                family: dashBoardFont.name
+                family: hexagonFont.name
             }
             y: powerDrawLabel.y + canvas.labelNumMargin
             anchors {
