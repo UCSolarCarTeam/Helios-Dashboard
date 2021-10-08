@@ -71,7 +71,7 @@ Item {
                     context.lineTo(config.xPosition - 1 / config.spacing, yPosition + config.height);
                     context.lineTo(config.xPosition, yPosition);
                     context.closePath();
-                    context.fillStyle = '#FFFFFF';
+                    context.fillStyle = "#FFFFFF";
                     context.fill();
                 }
                 startPosition += config.animationSpeed; // this will determine the starting yPosition of the next frame

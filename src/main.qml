@@ -1,5 +1,6 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
+import QtQuick 2.12
+import QtQuick.Controls 2.4
+import QtQuick.Window 2.12
 
 Window {
     id: root
@@ -9,6 +10,7 @@ Window {
     title: qsTr("Helios Dashboard")
 
     Rectangle {
+        id: background
         anchors.fill: parent
         gradient: Gradient {
             GradientStop { position: 0.0; color: "#545454" }
@@ -52,6 +54,20 @@ Window {
                 left: signalBar.right
                 leftMargin: 5
                 top: parent.top
+            }
+        }
+        
+        Battery {
+            id: battery
+            width: 260
+            height: 53
+            batteryPercentage: slider.value
+
+            anchors {
+                horizontalCenter: background.horizontalCenter
+                verticalCenter: background.verticalCenter
+                horizontalCenterOffset: 5
+                verticalCenterOffset: background.height * 1/4
             }
         }
     }
