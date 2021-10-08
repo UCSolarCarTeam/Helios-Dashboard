@@ -9,6 +9,12 @@ Window {
     visible: true
     title: qsTr("Helios Dashboard")
 
+    FontLoader
+    {
+        id: dashBoardFont
+        source: "fonts/Oswald/Oswald-VariableFont_wght.ttf"
+    }
+
     Rectangle {
         id: background
         anchors.fill: parent
@@ -49,7 +55,8 @@ Window {
             id: battery
             width: 260
             height: 53
-            batteryPercentage: slider.value
+            batteryFont: dashBoardFont
+            batteryPercentage: 0
 
             anchors {
                 horizontalCenter: background.horizontalCenter
