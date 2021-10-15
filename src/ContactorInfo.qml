@@ -1,14 +1,14 @@
 import QtQuick 2.15
 
 Item {
-    property var contactorState: "fault"
+    property var contactorState: "run + solar"
 
     Text {
         id: contactorLabel
         text: "Contactor"
         color: "white"
         font {
-            family: "Amaranath"
+            family: dashBoardFont.name
             pointSize: 20
             weight: Font.Normal
         }
@@ -48,14 +48,19 @@ Item {
             }
         }
         font {
-            family: "Amaranath"
-            pointSize: 30
+            family: dashBoardFont.name
+            pointSize: 35
             weight: Font.Normal
         }
         anchors {
             top: divider.bottom
-            topMargin: 5
             horizontalCenter: parent.horizontalCenter
         }
+    }
+
+    FontLoader
+    {
+        id: dashBoardFont
+        source: "fonts/Oswald/Oswald-VariableFont_wght.ttf"
     }
 }

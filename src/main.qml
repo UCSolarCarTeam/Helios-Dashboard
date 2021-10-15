@@ -61,7 +61,7 @@ Window {
             id: battery
             width: 260
             height: 53
-            batteryPercentage: slider.value
+            batteryPercentage: 0
 
             anchors {
                 horizontalCenter: background.horizontalCenter
