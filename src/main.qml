@@ -28,7 +28,7 @@ Window {
         SpeedNumber {
             anchors {
                 top: parent.top
-                topMargin: 50
+                topMargin: 55
                 left: parent.left
                 leftMargin: (parent.width - this.width) / 2 - 65
             }
