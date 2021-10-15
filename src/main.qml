@@ -54,6 +54,7 @@ Window {
             id: contactorInfo
             contactorState: "run + solar"
             height: 100
+            dashboardFont: dashBoardFont
             anchors {
                 right: parent.right
                 rightMargin: 5

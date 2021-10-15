@@ -1,6 +1,7 @@
 import QtQuick 2.15
 
 Item {
+    property FontLoader dashboardFont
     property var contactorState: "run + solar"
 
     Text {
@@ -58,9 +59,4 @@ Item {
         }
     }
 
-    FontLoader
-    {
-        id: dashBoardFont
-        source: "fonts/Oswald/Oswald-VariableFont_wght.ttf"
-    }
 }
