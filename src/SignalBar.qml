@@ -3,6 +3,8 @@ import QtQuick 2.15
 Item {
     id: signalBarContainer
     //Consider enums/constants for properties?
+
+    property FontLoader dashboardFont
     property string signalState: "none"
     property string lightsState: "off"
     property string gear: "n"
@@ -154,7 +156,7 @@ Item {
                 leftMargin: gear === "d" ? 0 : 5
             }
             font {
-                family: "Amaranath"
+                family: dashboardFont.name
                 pointSize: gear === "d" ? 55 : 15
                 weight: gear === "d" ? Font.DemiBold : Font.Normal
                 italic: gear === "d" ? false : true
@@ -168,10 +170,9 @@ Item {
             anchors {
                 verticalCenter: parent.verticalCenter
                 right: drive.left
-                rightMargin: gear === "r" ? 5 : 0
             }
             font {
-                family: "Amaranath"
+                family: dashboardFont.name
                 pointSize: gear === "r" ? 55 : 15
                 weight: gear === "r" ? Font.DemiBold : Font.Normal
                 italic: gear === "r" ? false : true
@@ -188,7 +189,7 @@ Item {
                 rightMargin: gear === "n" ? 5 : 0
             }
             font {
-                family: "Amaranath"
+                family: dashboardFont.name
                 pointSize: gear === "n" ? 55 : 15
                 weight: gear === "n" ? Font.DemiBold : Font.Normal
                 italic: gear === "n" ? false : true
