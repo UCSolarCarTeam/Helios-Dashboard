@@ -40,6 +40,7 @@ Window {
             lightsState: "off"
             gear: "n"
             height: 75
+            dashboardFont: dashBoardFont
             anchors {
                 left: parent.left
                 leftMargin: (parent.width/3)-100
