@@ -65,7 +65,6 @@ Item {
             id: busCurrentLabel
             text: qsTr("Bus Current")
             color: "white"
-
             font {
                 pointSize: canvas.fontSize - canvas.titleFontDiff
                 weight: Font.DemiBold
@@ -83,7 +82,6 @@ Item {
             id: motorZeroLabel
             text: qsTr("M0:")
             color: "white"
-
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
@@ -97,7 +95,6 @@ Item {
             id: motorZeroNum
             text: qsTr(String(motorZeroCurrent).padStart(3, '0') + " A")
             color: "white"
-
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
@@ -111,7 +108,6 @@ Item {
             id: motorOneLabel
             text: qsTr("M1:")
             color: "white"
-
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
@@ -125,7 +121,6 @@ Item {
             id: motorOneNum
             text: qsTr(String(motorOneCurrent).padStart(3, '0') + " A")
             color: "white"
-
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
@@ -169,7 +164,7 @@ Item {
         Text {
             id: maxTempNum
             color: "white"
-            text: "45 °C"
+            text: qsTr(String(hexagon.maxTemp) + " °C")
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
@@ -196,8 +191,7 @@ Item {
             id: maxVoltNum
             text: qsTr(String(maxVolt).padStart(3, '0') + " V")
             color: "white"
-            font
-            {
+            font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
                 weight: Font.DemiBold
                 family: hexagonFont.name
@@ -222,7 +216,7 @@ Item {
         Text {
             id: minVoltNum
             color: "white"
-            text: "177 V"
+            text: qsTr(String(hexagon.minVolt).padStart(3, '0') + " V")
             minimumPixelSize: 16
             font {
                 pointSize: canvas.fontSize - canvas.subFontDiff
@@ -258,10 +252,10 @@ Item {
                 weight: Font.DemiBold
                 family: hexagonFont.name
             }
-            y: powerDrawLabel.y + canvas.labelNumMargin
             anchors {
                 horizontalCenter: canvas.horizontalCenter
             }
+            y: powerDrawLabel.y + canvas.labelNumMargin
         }
     }
 }
