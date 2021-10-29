@@ -9,6 +9,12 @@ Window {
     visible: true
     title: qsTr("Helios Dashboard")
 
+    FontLoader
+    {
+        id: dashBoardFont
+        source: "fonts/Oswald/Oswald-VariableFont_wght.ttf"
+    }
+
     Rectangle {
         id: background
         anchors.fill: parent
@@ -39,8 +45,8 @@ Window {
             signalState: "none"
             lightsState: "off"
             gear: "n"
-
             height: 75
+            dashboardFont: dashBoardFont
             anchors {
                 left: parent.left
                 leftMargin: (parent.width/3)-100
@@ -51,11 +57,26 @@ Window {
             }
         }
 
+        ContactorInfo {
+            id: contactorInfo
+            contactorState: "run + solar"
+            height: 100
+            dashboardFont: dashBoardFont
+            anchors {
+                right: parent.right
+                rightMargin: 5
+                left: signalBar.right
+                leftMargin: 5
+                top: parent.top
+            }
+        }
+        
         Battery {
             id: battery
             width: 260
             height: 53
-            batteryPercentage: slider.value
+            batteryFont: dashBoardFont
+            batteryPercentage: 0
 
             anchors {
                 horizontalCenter: background.horizontalCenter

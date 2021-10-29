@@ -3,6 +3,7 @@ import QtGraphicalEffects 1.12
 
 Item {
     id: batteryComponent
+    property FontLoader batteryFont
     property real batteryPercentage
 
     Rectangle {
@@ -64,11 +65,6 @@ Item {
 
     }
 
-    FontLoader
-    {
-        id: dashBoardFont
-        source: "fonts/Oswald/Oswald-VariableFont_wght.ttf"
-    }
 
     Text
     {
@@ -78,7 +74,7 @@ Item {
         font {
             pointSize: batteryBorder.height * 0.6
             weight: Font.DemiBold
-            family: dashBoardFont.name
+            family: batteryFont.name
         }
         anchors {
             verticalCenter: batteryBorder.verticalCenter
