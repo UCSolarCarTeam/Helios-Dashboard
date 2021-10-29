@@ -37,7 +37,7 @@ Window {
         Hexagon {
             x: 10
             y: 10
-            hexagonFont: dashboardFont
+            hexagonFont: dashBoardFont
         }
 
         SignalBar {
