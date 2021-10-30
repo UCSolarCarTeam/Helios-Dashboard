@@ -34,6 +34,15 @@ Window {
             }
         }
 
+        SpeedNumber {
+            anchors {
+                top: parent.top
+                topMargin: 55
+                left: parent.left
+                leftMargin: (parent.width - this.width) / 2 - 65
+            }
+        }
+
         Hexagon {
             x: 10
             y: 10
