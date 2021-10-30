@@ -2,17 +2,19 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>FaultList.qml</file>
+        <file>FaultListDelegate.qml</file>
         <file>FaultListModel.qml</file>
         <file>images/LeftMotor.svg</file>
         <file>images/Battery.svg</file>
         <file>images/RightMotor.svg</file>
+        <file>Hexagon.qml</file>
         <file>Road.qml</file>
         <file>images/highBeamOff.svg</file>
         <file>images/highBeamOn.svg</file>
         <file>images/signalOff.svg</file>
         <file>images/signalOn.svg</file>
         <file>SignalBar.qml</file>
-        <file>FaultListDelegate.qml</file>
+        <file>SpeedNumber.qml</file>
         <file>ContactorInfo.qml</file>
         <file>Battery.qml</file>
         <file>fonts/Oswald/Oswald-VariableFont_wght.ttf</file>

@@ -40,9 +40,26 @@ Window {
         faultListFont: dashBoardFont
         anchors {
             bottom: root.bottom
-            horizontalCenter: contactorInfo.horizontalCenter
+            right: parent.right
+            rightMargin: parent.width / 16
+            //To center under ContactorInfo horizontalCenter: contactorInfo.horizontalCenter
         }
     }
+
+        SpeedNumber {
+            anchors {
+                top: parent.top
+                topMargin: 55
+                left: parent.left
+                leftMargin: (parent.width - this.width) / 2 - 65
+            }
+        }
+
+        Hexagon {
+            x: 10
+            y: 10
+            hexagonFont: dashBoardFont
+        }
 
         SignalBar {
             id: signalBar
