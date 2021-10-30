@@ -15,9 +15,9 @@ Item {
     }
 
     Rectangle {
-        y: faultsListView.model.count > 3 ? root.height - (100 + 60 *3) : root.height - (100 + 60 * faultsListView.model.count)
+        y: faultsListView.model.count > 3 ? root.height - (100 + 60 * 3) : root.height - (100 + 60 * faultsListView.model.count)
         width: parent.width
-        height:80
+        height: 80
         clip: faultsListView.model.count === 0
         color: "transparent"
 
