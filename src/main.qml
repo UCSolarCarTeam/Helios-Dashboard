@@ -34,6 +34,12 @@ Window {
             }
         }
 
+        Hexagon {
+            x: 10
+            y: 10
+            hexagonFont: dashBoardFont
+        }
+
         SignalBar {
             id: signalBar
             signalState: "none"
