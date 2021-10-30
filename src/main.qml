@@ -23,16 +23,28 @@ Window {
             GradientStop { position: 0.5; color: "#656363" }
             GradientStop { position: 1.0; color: "#7B7979" }
         }
+    }
 
-        Road {
-            id: road
-            width: 450
-            height: 200
-            anchors {
-                bottom: parent.bottom
-                horizontalCenter: parent.horizontalCenter
-            }
+    Road {
+        width: 450
+        height: 200
+        anchors {
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
         }
+    }
+
+    FaultList {
+        id: faultList
+        width: 250
+        faultListFont: dashBoardFont
+        anchors {
+            bottom: root.bottom
+            right: parent.right
+            rightMargin: parent.width / 16
+            //To center under ContactorInfo horizontalCenter: contactorInfo.horizontalCenter
+        }
+    }
 
         SpeedNumber {
             anchors {
@@ -95,4 +107,4 @@ Window {
             }
         }
     }
-}
+

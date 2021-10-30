@@ -1,6 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>FaultList.qml</file>
+        <file>FaultListDelegate.qml</file>
+        <file>FaultListModel.qml</file>
+        <file>images/LeftMotor.svg</file>
+        <file>images/Battery.svg</file>
+        <file>images/RightMotor.svg</file>
         <file>Hexagon.qml</file>
         <file>Road.qml</file>
         <file>images/highBeamOff.svg</file>
