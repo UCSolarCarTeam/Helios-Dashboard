@@ -26,7 +26,7 @@ Item {
             Text {
                 id: speedUnitText
                 color: "#ffffff"
-                text: qsTr("Km/h")
+                text: qsTr("km/h")
                 font {
                     pixelSize: 40
                 }

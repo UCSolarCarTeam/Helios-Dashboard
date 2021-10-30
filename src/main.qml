@@ -41,7 +41,12 @@ Window {
                 left: parent.left
                 leftMargin: (parent.width - this.width) / 2 - 65
             }
+        }
 
+        Hexagon {
+            x: 10
+            y: 10
+            hexagonFont: dashBoardFont
         }
 
         SignalBar {
