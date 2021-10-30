@@ -10,7 +10,7 @@ Component {
 
             Text {
                 id: faultText
-                font.family: "Oswald" // will edit it when the font pr is merged
+                font.family: faultListFont.name
                 font.pixelSize: 18
                 width: Math.min(contentWidth, faultList.width - 50)
                 wrapMode: Text.WordWrap

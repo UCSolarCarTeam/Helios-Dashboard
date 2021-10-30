@@ -37,10 +37,10 @@ Window {
     FaultList {
         id: faultList
         width: 250
+        faultListFont: dashBoardFont
         anchors {
             bottom: root.bottom
-            right: parent.right
-            rightMargin: parent.width / 16
+            horizontalCenter: contactorInfo.horizontalCenter
         }
     }
 

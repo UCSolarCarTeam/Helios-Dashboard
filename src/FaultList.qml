@@ -2,7 +2,7 @@ import QtQuick 2.15
 
 
 Item {
-
+    property FontLoader faultListFont
     function delay(delayTime, callback) {
         timer.interval = delayTime;
         timer.repeat = true;
