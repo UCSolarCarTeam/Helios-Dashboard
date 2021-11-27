@@ -16,35 +16,33 @@ Window {
     }
 
     Rectangle {
-        id: background
+        id: base
         anchors.fill: parent
         gradient: Gradient {
-            GradientStop { position: 0.0; color: "#545454" }
-            GradientStop { position: 0.5; color: "#656363" }
-            GradientStop { position: 1.0; color: "#7B7979" }
+            GradientStop { position: 0.0; color: "#373737" }
+            GradientStop { position: 1.0; color: "#aaacaa" }
         }
-    }
 
-    Road {
-        width: 450
-        height: 200
-        anchors {
-            bottom: parent.bottom
-            horizontalCenter: parent.horizontalCenter
+        Road {
+            width: 450
+            height: 200
+            anchors {
+                bottom: parent.bottom
+                horizontalCenter: parent.horizontalCenter
+            }
         }
-    }
 
-    FaultList {
-        id: faultList
-        width: 250
-        faultListFont: dashBoardFont
-        anchors {
-            bottom: root.bottom
-            right: parent.right
-            rightMargin: parent.width / 16
-            //To center under ContactorInfo horizontalCenter: contactorInfo.horizontalCenter
+        FaultList {
+            id: faultList
+            width: 250
+            faultListFont: dashBoardFont
+            anchors {
+                bottom: root.bottom
+                right: parent.right
+                rightMargin: parent.width / 16
+                //To center under ContactorInfo horizontalCenter: contactorInfo.horizontalCenter
+            }
         }
-    }
 
         SpeedNumber {
             anchors {
@@ -91,7 +89,7 @@ Window {
                 top: parent.top
             }
         }
-        
+
         Battery {
             id: battery
             width: 260
@@ -100,11 +98,12 @@ Window {
             batteryPercentage: 0
 
             anchors {
-                horizontalCenter: background.horizontalCenter
-                verticalCenter: background.verticalCenter
+                horizontalCenter: base.horizontalCenter
+                verticalCenter: base.verticalCenter
                 horizontalCenterOffset: 5
-                verticalCenterOffset: background.height * 1/4
+                verticalCenterOffset: base.height * 1/4
             }
         }
     }
+}
 
