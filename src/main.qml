@@ -24,11 +24,14 @@ Window {
         }
 
         Road {
-            width: 450
-            height: 200
             anchors {
+                top: parent.verticalCenter
+                topMargin: -30
+                left: parent.left
+                leftMargin: parent.width/3
+                right: parent.right
+                rightMargin: parent.width/3
                 bottom: parent.bottom
-                horizontalCenter: parent.horizontalCenter
             }
         }
 
