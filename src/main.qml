@@ -82,11 +82,10 @@ Window {
         ContactorInfo {
             id: contactorInfo
             contactorState: "run + solar"
-            height: 100
+            height: signalBar.height
             dashboardFont: dashBoardFont
             anchors {
                 right: parent.right
-                rightMargin: 5
                 left: signalBar.right
                 leftMargin: 5
                 top: parent.top
