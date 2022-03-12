@@ -58,7 +58,7 @@ Window {
 
         Hexagon {
             x: 10
-            y: 10
+            y: 25
             hexagonFont: dashBoardFont
         }
 
