@@ -1,6 +1,8 @@
 import QtQuick 2.15
 
 Item {
+    id: speedInfoContainer
+
     property FontLoader dashboardFont
     property int speed: 0
     property int speedNumberFontSize
@@ -9,7 +11,7 @@ Item {
     Text {
         id: speedNumberText
         text: speed.toString()
-        color: "#ffffff"
+        color: "white"
         font {
             family: dashboardFont.name
             pixelSize: speedNumberFontSize
@@ -23,7 +25,7 @@ Item {
 
     Text {
         id: speedUnitText
-        color: "#ffffff"
+        color: "white"
         text: qsTr("KM/H")
         font {
             family: dashboardFont.name
