@@ -101,7 +101,7 @@ Window {
         id: battery
         width: 260
         height: 53
-        batteryFont: dashboardFont
+        dashboardFont: dashboardFont
         batteryPercentage: 0
 
         anchors {
