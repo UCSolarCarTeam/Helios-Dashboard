@@ -46,8 +46,8 @@ Window {
         }
     }
 
-    SpeedNumber {
-        id: speedNumber
+    SpeedInfo {
+        id: speedInfo
         dashboardFont: dashboardFont
         speed: 91
         speedNumberFontSize: 170
