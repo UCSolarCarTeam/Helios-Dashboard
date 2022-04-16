@@ -53,8 +53,9 @@ Window {
         speedNumberFontSize: 170
         speedUnitFontSize: 40
         anchors {
-            top: parent.top
             horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+            verticalCenterOffset: -60
         }
     }
 

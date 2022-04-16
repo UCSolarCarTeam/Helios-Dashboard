@@ -17,8 +17,7 @@ Item {
         }
         anchors {
             horizontalCenter: parent.horizontalCenter
-            top: parent.top
-            topMargin: 15
+            verticalCenter: parent.verticalCenter
         }
     }
 
