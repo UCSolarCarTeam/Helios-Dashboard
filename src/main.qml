@@ -48,11 +48,14 @@ Window {
         }
 
         SpeedNumber {
+            dashboardFont: dashBoardFont
             anchors {
-                top: parent.top
-                topMargin: 55
+                top: signalBar.bottom
+
                 left: parent.left
-                leftMargin: (parent.width - this.width) / 2 - 65
+                leftMargin: (parent.width/3)-100
+                right: parent.right
+                rightMargin: (parent.width/3)-100
             }
         }
 
