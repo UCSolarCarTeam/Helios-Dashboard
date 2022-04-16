@@ -102,8 +102,7 @@ Window {
         width: 260
         height: 53
         dashboardFont: dashboardFont
-        batteryPercentage: 0
-
+        batteryPercentage: 0.7
         anchors {
             horizontalCenter: background.horizontalCenter
             verticalCenter: background.verticalCenter
