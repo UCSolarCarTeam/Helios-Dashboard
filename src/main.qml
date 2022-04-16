@@ -48,6 +48,7 @@ Window {
 
     SpeedNumber {
         id: speedNumber
+        dashboardFont: dashboardFont
         anchors {
             top: parent.top
             topMargin: 55
