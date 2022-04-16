@@ -95,18 +95,18 @@ Window {
     }
 
     Battery {
-            id: battery
-            width: 260
-            height: 53
-            batteryFont: dashboardFont
-            batteryPercentage: 0
+        id: battery
+        width: 260
+        height: 53
+        batteryFont: dashboardFont
+        batteryPercentage: 0
 
-            anchors {
-                horizontalCenter: background.horizontalCenter
-                verticalCenter: background.verticalCenter
-                horizontalCenterOffset: 5
-                verticalCenterOffset: background.height * 1/4
-            }
+        anchors {
+            horizontalCenter: background.horizontalCenter
+            verticalCenter: background.verticalCenter
+            horizontalCenterOffset: 5
+            verticalCenterOffset: background.height * 1/4
         }
+    }
 
 }
