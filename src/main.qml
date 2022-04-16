@@ -49,6 +49,9 @@ Window {
     SpeedNumber {
         id: speedNumber
         dashboardFont: dashboardFont
+        speed: 91
+        speedNumberFontSize: 170
+        speedUnitFontSize: 40
         anchors {
             top: parent.top
             horizontalCenter: parent.horizontalCenter
