@@ -25,6 +25,7 @@ Window {
     }
 
     Road {
+        id: road
         width: 450
         height: 200
         anchors {
@@ -46,6 +47,7 @@ Window {
     }
 
     SpeedNumber {
+        id: speedNumber
         anchors {
             top: parent.top
             topMargin: 55
@@ -55,6 +57,7 @@ Window {
     }
 
     Hexagon {
+        id: hexagon
         x: 10
         y: 10
         hexagonFont: dashBoardFont
