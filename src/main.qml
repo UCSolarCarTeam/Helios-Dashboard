@@ -108,7 +108,7 @@ Window {
             horizontalCenter: background.horizontalCenter
             verticalCenter: background.verticalCenter
             horizontalCenterOffset: 5
-            verticalCenterOffset: background.height * 1/4
+            verticalCenterOffset: background.height * 1/4 + 20
         }
     }
 
