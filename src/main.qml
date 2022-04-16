@@ -51,9 +51,7 @@ Window {
         dashboardFont: dashboardFont
         anchors {
             top: parent.top
-            topMargin: 55
-            left: parent.left
-            leftMargin: (parent.width - this.width) / 2 - 65
+            horizontalCenter: parent.horizontalCenter
         }
     }
 

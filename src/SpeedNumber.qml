@@ -2,8 +2,52 @@ import QtQuick 2.15
 
 Item {
     property FontLoader dashboardFont
-    property int speed: 0
+    property int speed: 84
 
+    Text {
+        id: speedNumberText
+        text: speed.toString()
+        color: "#ffffff"
+        font {
+            family: dashboardFont.name
+            pixelSize: 160
+            weight: Font.Bold
+        }
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            topMargin: 15
+        }
+    }
+
+    Text {
+        id: speedUnitText
+        color: "#ffffff"
+        text: qsTr("KM/H")
+        font {
+            family: dashboardFont.name
+            pixelSize: 40
+            weight: Font.ExtraLight
+        }
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            top: speedNumberText.bottom
+            topMargin: -50
+        }
+    }
+
+    /*
+    Rectangle {
+        color: "blue"
+        width: 250
+        height: 250
+        //anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+    }
+    */
+
+    /*
     Rectangle {
         id: speedTextContainer
         Text {
@@ -16,7 +60,6 @@ Item {
                 weight: Font.Bold
             }
             anchors {
-
                 left: parent.left
                 leftMargin: speed < 10 ?
                                 parent.width + contentWidth / 2
@@ -40,4 +83,5 @@ Item {
             }
         }
     }
+    */
 }
