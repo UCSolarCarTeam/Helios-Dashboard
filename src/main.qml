@@ -9,9 +9,8 @@ Window {
     visible: true
     title: qsTr("Helios Dashboard")
 
-    FontLoader
-    {
-        id: dashBoardFont
+    FontLoader {
+        id: dashboardFont
         source: "fonts/Oswald/Oswald-VariableFont_wght.ttf"
     }
 
@@ -26,6 +25,7 @@ Window {
     }
 
     Road {
+        id: road
         width: 450
         height: 200
         anchors {
@@ -37,7 +37,7 @@ Window {
     FaultList {
         id: faultList
         width: 250
-        faultListFont: dashBoardFont
+        faultListFont: dashboardFont
         anchors {
             bottom: root.bottom
             right: parent.right
@@ -46,65 +46,67 @@ Window {
         }
     }
 
-        SpeedNumber {
-            anchors {
-                top: parent.top
-                topMargin: 55
-                left: parent.left
-                leftMargin: (parent.width - this.width) / 2 - 65
-            }
-        }
-
-        Hexagon {
-            x: 10
-            y: 10
-            hexagonFont: dashBoardFont
-        }
-
-        SignalBar {
-            id: signalBar
-            signalState: "none"
-            lightsState: "off"
-            gear: "n"
-            height: 75
-            dashboardFont: dashBoardFont
-            anchors {
-                left: parent.left
-                leftMargin: (parent.width/3)-100
-                right: parent.right
-                rightMargin: (parent.width/3)-100
-                top: parent.top
-                topMargin: 5
-            }
-        }
-
-        ContactorInfo {
-            id: contactorInfo
-            contactorState: "run + solar"
-            height: 100
-            dashboardFont: dashBoardFont
-            anchors {
-                right: parent.right
-                rightMargin: 5
-                left: signalBar.right
-                leftMargin: 5
-                top: parent.top
-            }
-        }
-        
-        Battery {
-            id: battery
-            width: 260
-            height: 53
-            batteryFont: dashBoardFont
-            batteryPercentage: 0
-
-            anchors {
-                horizontalCenter: background.horizontalCenter
-                verticalCenter: background.verticalCenter
-                horizontalCenterOffset: 5
-                verticalCenterOffset: background.height * 1/4
-            }
+    SpeedNumber {
+        id: speedNumber
+        anchors {
+            top: parent.top
+            topMargin: 55
+            left: parent.left
+            leftMargin: (parent.width - this.width) / 2 - 65
         }
     }
 
+    Hexagon {
+        id: hexagon
+        x: 10
+        y: 10
+        hexagonFont: dashboardFont
+    }
+
+    SignalBar {
+        id: signalBar
+        signalState: "none"
+        lightsState: "off"
+        gear: "n"
+        height: 75
+        dashboardFont: dashboardFont
+        anchors {
+            left: parent.left
+            leftMargin: (parent.width/3)-100
+            right: parent.right
+            rightMargin: (parent.width/3)-100
+            top: parent.top
+            topMargin: 5
+        }
+    }
+
+    ContactorInfo {
+        id: contactorInfo
+        contactorState: "run + solar"
+        height: 100
+        dashboardFont: dashboardFont
+        anchors {
+            right: parent.right
+            rightMargin: 5
+            left: signalBar.right
+            leftMargin: 5
+            top: parent.top
+        }
+    }
+
+    Battery {
+        id: battery
+        width: 260
+        height: 53
+        batteryFont: dashboardFont
+        batteryPercentage: 0
+
+        anchors {
+            horizontalCenter: background.horizontalCenter
+            verticalCenter: background.verticalCenter
+            horizontalCenterOffset: 5
+            verticalCenterOffset: background.height * 1/4
+        }
+    }
+
+}

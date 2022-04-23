@@ -9,7 +9,7 @@ Item {
         text: "Contactor"
         color: "white"
         font {
-            family: dashBoardFont.name
+            family: dashboardFont.name
             pointSize: 20
             weight: Font.Normal
         }
@@ -49,7 +49,7 @@ Item {
             }
         }
         font {
-            family: dashBoardFont.name
+            family: dashboardFont.name
             pointSize: 35
             weight: Font.Normal
         }
