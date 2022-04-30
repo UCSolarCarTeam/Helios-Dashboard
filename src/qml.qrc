@@ -14,9 +14,9 @@
         <file>images/signalOff.svg</file>
         <file>images/signalOn.svg</file>
         <file>SignalBar.qml</file>
-        <file>SpeedNumber.qml</file>
         <file>ContactorInfo.qml</file>
         <file>Battery.qml</file>
         <file>fonts/Oswald/Oswald-VariableFont_wght.ttf</file>
+        <file>SpeedInfo.qml</file>
     </qresource>
 </RCC>

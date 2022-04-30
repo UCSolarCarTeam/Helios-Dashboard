@@ -46,13 +46,16 @@ Window {
         }
     }
 
-    SpeedNumber {
-        id: speedNumber
+    SpeedInfo {
+        id: speedInfo
+        dashboardFont: dashboardFont
+        speed: 91
+        speedNumberFontSize: 170
+        speedUnitFontSize: 40
         anchors {
-            top: parent.top
-            topMargin: 55
-            left: parent.left
-            leftMargin: (parent.width - this.width) / 2 - 65
+            horizontalCenter: parent.horizontalCenter
+            verticalCenter: parent.verticalCenter
+            verticalCenterOffset: -60
         }
     }
 
@@ -105,8 +108,7 @@ Window {
             horizontalCenter: background.horizontalCenter
             verticalCenter: background.verticalCenter
             horizontalCenterOffset: 5
-            verticalCenterOffset: background.height * 1/4
+            verticalCenterOffset: background.height * 1/4 + 20
         }
     }
-
 }
