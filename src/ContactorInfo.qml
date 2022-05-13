@@ -39,7 +39,7 @@ Rectangle {
         }
         font {
             family: dashBoardFont.name
-            pointSize: 30
+            pointSize: 32
             weight: Font.Normal
         }
         anchors {
