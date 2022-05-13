@@ -8,12 +8,12 @@ Rectangle {
 
     Text {
         id: contactorLabel
-        text: "Contactor"
+        text: "CONTACTOR"
         color: "white"
         font {
-            family: dashBoardFont.name
+            family: dashboardFont.name
             pointSize: 15
-            weight: Font.Normal
+            weight: Font.Thin
         }
         anchors {
             top: parent.top
@@ -38,13 +38,13 @@ Rectangle {
             }
         }
         font {
-            family: dashBoardFont.name
-            pointSize: 32
-            weight: Font.Normal
+            family: dashboardFont.name
+            pointSize: 40
+            weight: Font.Medium
         }
         anchors {
             top: contactorLabel.bottom
-            topMargin: -5
+            topMargin: -10
             horizontalCenter: parent.horizontalCenter
         }
     }
