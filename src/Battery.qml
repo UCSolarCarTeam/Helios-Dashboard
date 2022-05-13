@@ -3,7 +3,7 @@ import QtGraphicalEffects 1.12
 
 Item {
     id: batteryComponent
-    property FontLoader batteryFont
+    property FontLoader dashboardFont
     property real batteryPercentage
 
     Rectangle {
@@ -13,7 +13,6 @@ Item {
         anchors.fill: batteryComponent.fill
         color: "transparent"
         radius: 5
-
         border {
             color: "white"
             width: batteryTerminal.width / 2
@@ -34,7 +33,6 @@ Item {
             height: batteryBorder.height - batteryBorder.border.width * 2
             width: batteryBorder.width - batteryBorder.border.width * 2
             color: "grey"
-
             anchors {
                 left: batteryBorder.left
                 leftMargin: batteryBorder.border.width
@@ -47,13 +45,11 @@ Item {
             id: batteryMeter
             height: batteryBorder.height - batteryBorder.border.width * 2
             width: batteryBorder.width * batteryPercentage - batteryBorder.border.width * 2
-
             anchors {
                 left: batteryBorder.left
                 leftMargin: batteryBorder.border.width
                 verticalCenter: batteryBorder.verticalCenter
             }
-
             gradient: Gradient {
                 orientation: Gradient.Horizontal
                 GradientStop { position: 0.0; color: "#FF46e05b" }
@@ -61,20 +57,16 @@ Item {
                 GradientStop { position: 1.0; color: batteryPercentage == 1 ? "#FF46e05b" : "#AF46e05b" }
             }
         }
-
-
     }
 
-
-    Text
-    {
+    Text {
         id: percentage
         color: "white"
         text: Number(Math.trunc(batteryPercentage.toFixed(2) * 100)) + "%"
         font {
             pointSize: batteryBorder.height * 0.6
             weight: Font.DemiBold
-            family: batteryFont.name
+            family: dashboardFont.name
         }
         anchors {
             verticalCenter: batteryBorder.verticalCenter
