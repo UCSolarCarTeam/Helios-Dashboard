@@ -1,35 +1,24 @@
 import QtQuick 2.15
 
-Item {
+Rectangle {
     property FontLoader dashboardFont
-    property var contactorState: "run + solar"
+    property string contactorState: "run + solar"
+
+    color: "transparent"
 
     Text {
         id: contactorLabel
-        text: "Contactor"
+        text: "CONTACTOR"
         color: "white"
         font {
             family: dashboardFont.name
-            pointSize: 20
-            weight: Font.Normal
+            pointSize: 15
+            weight: Font.Thin
         }
         anchors {
-            bottom: divider.top
-            bottomMargin: 3
+            top: parent.top
+            topMargin: 13
             horizontalCenter: parent.horizontalCenter
-        }
-    }
-
-    Rectangle {
-        id: divider
-        color: "white"
-        height: 2
-        anchors {
-            left: parent.left
-            leftMargin: 15
-            right: parent.right
-            rightMargin: 15
-            verticalCenter: parent.verticalCenter
         }
     }
 
@@ -50,13 +39,13 @@ Item {
         }
         font {
             family: dashboardFont.name
-            pointSize: 35
-            weight: Font.Normal
+            pointSize: 40
+            weight: Font.Medium
         }
         anchors {
-            top: divider.bottom
+            top: contactorLabel.bottom
+            topMargin: -10
             horizontalCenter: parent.horizontalCenter
         }
     }
-
 }
