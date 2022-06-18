@@ -1,81 +1,133 @@
 import QtQuick 2.15
 
-
 Item {
     property FontLoader faultListFont
-    function delay(delayTime, callback) {
-        timer.interval = delayTime;
-        timer.repeat = true;
-        timer.triggered.connect(callback);
-        timer.start();
-    }
+    property int margin: 10
+    property int fontSize: 20
 
-    Timer {
-        id: timer
+    /*
+    Rectangle {
+        width: parent.width
+        anchors {
+            top: parent.top
+            bottom: parent.bottom
+        }
+        color: "blue"
+    }
+    */
+
+    Rectangle {
+        id: one
+        anchors {
+            top: parent.top
+        }
+        width: parent.width
+        color: "white"
+        height: 2
     }
 
     Rectangle {
-        y: faultsListView.model.count > 3 ? root.height - (100 + 60 * 3) : root.height - (100 + 60 * faultsListView.model.count)
+        id: four
+        anchors {
+            bottom: parent.bottom
+        }
         width: parent.width
-        height: 80
-        clip: faultsListView.model.count === 0
+        color: "white"
+        height: 2
+    }
+
+    Rectangle {
+        id: two
+        anchors {
+            top: parent.top
+            topMargin: parent.height/3
+        }
+        width: parent.width
+        color: "white"
+        height: 2
+    }
+
+    Rectangle {
+        id: three
+        anchors {
+            bottom: parent.bottom
+            bottomMargin: parent.height/3
+        }
+        width: parent.width
+        color: "white"
+        height: 2
+    }
+
+    Rectangle {
+        anchors {
+            top: one.top
+            bottom: two.top
+        }
+        width: parent.width
         color: "transparent"
 
-        Image {
-            id: leftMotor
-            x: 18
-            y: 14
-            source: "images/LeftMotor.svg"
-            fillMode: Image.PreserveAspectFit
-        }
-
-        Image {
-            id: battery
-            x: 100
-            y: 18
-            source: "images/Battery.svg"
-            fillMode: Image.PreserveAspectFit
-        }
-
-        Image {
-            id: rightMotor
-            x: 180
-            y: 14
-            source: "images/RightMotor.svg"
-            fillMode: Image.PreserveAspectFit
-        }
-
-        Rectangle {
-            y: 60
-            width: parent.width
-            color: "#ffffff"
-            height: 3
-        }
-
-        ListView {
-            id: faultsListView
-            y: 75
-            width: parent.width
-            height: 180
-            clip: true
-            model: FaultListModel {}
-            delegate: FaultListDelegate {}
-            add: Transition {
-                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 300 }
+        Text {
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
             }
-            move: Transition {
-                NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 300 }
+            font {
+                family: dashboardFont.name
+                pointSize: fontSize
+                weight: Font.Normal
+                capitalization: Font.AllUppercase
             }
-
-            focus: true
-        }
-
-        Component.onCompleted: {
-            if(faultsListView.model.count > 3) {
-                delay(1500, function() {
-                    faultsListView.model.move(faultsListView.model.count - 1, 0, 1);
-                });
-            }
+            color: "white"
+            text: "Go home"
         }
     }
+
+    Rectangle {
+        anchors {
+            top: two.top
+            bottom: three.top
+        }
+        width: parent.width
+        color: "transparent"
+
+        Text {
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+            font {
+                family: dashboardFont.name
+                pointSize: fontSize
+                weight: Font.Normal
+                capitalization: Font.AllUppercase
+            }
+            color: "white"
+            text: "get ahead"
+        }
+    }
+
+    Rectangle {
+        anchors {
+            top: three.top
+            bottom: four.top
+        }
+        width: parent.width
+        color: "transparent"
+
+        Text {
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+            }
+            font {
+                family: dashboardFont.name
+                pointSize: fontSize
+                weight: Font.Normal
+                capitalization: Font.AllUppercase
+            }
+            color: "white"
+            text: "light-speed internet"
+        }
+    }
+
 }
