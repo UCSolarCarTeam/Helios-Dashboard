@@ -24,6 +24,7 @@ Window {
         }
     }
 
+    /*
     Road {
         id: road
         width: 450
@@ -33,16 +34,19 @@ Window {
             horizontalCenter: parent.horizontalCenter
         }
     }
+    */
 
     FaultList {
         id: faultList
-        width: 250
+        width: 375
         faultListFont: dashboardFont
         anchors {
-            bottom: root.bottom
+            top: parent.verticalCenter
+            topMargin: -10
+            bottom: parent.bottom
+            bottomMargin: 35
             right: parent.right
-            rightMargin: parent.width / 16
-            //To center under ContactorInfo horizontalCenter: contactorInfo.horizontalCenter
+            rightMargin: 50
         }
     }
 
