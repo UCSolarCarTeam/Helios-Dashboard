@@ -11,7 +11,7 @@ SUBDIRS = \
     InfrastructureLayer \
     CommunicationLayer \
     DataLayer \
-    EpsilonDashboard \
+    HeliosDashboard \
     Tests \
 
 DISTFILES += \
