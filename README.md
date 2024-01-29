@@ -1,5 +1,5 @@
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/UCSolarCarTeam/Epsilon-Dashboard.png?columns=all)](https://waffle.io/UCSolarCarTeam/Epsilon-Dashboard?utm_source=badge)
-# Epsilon-Dashboard
+# Helios-Dashboard
 
 The Epsilon Dashboard displays information on the screens.
 
@@ -110,7 +110,7 @@ An example can be found in `config.ini.example`, and any necessary settings can 
         
 2. Attempt to build and run the project.
     - If an "executable not found" error occurs, click on the project configuration button which allows you to select different run configurations.
-    
+
     - Toggle between 'Debug' and 'Profile,' allowing Qt to index the project. After each toggle, return to the 'Run' menu and select "HeliosDashboard" as the run configuration. Give this a couple attempts and the run configuration for Helios should appear.
     - Build and Run the project.
 
