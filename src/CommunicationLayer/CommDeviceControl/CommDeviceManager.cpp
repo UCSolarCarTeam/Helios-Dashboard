@@ -17,21 +17,24 @@ void CommDeviceManager::connectToDevice(CommDefines::Type type)
     if (type == CommDefines::Internet)
     {
         InternetCommDevice* internetCommDevice = new InternetCommDevice();
-        internetCommDevice->setQueueName(queueName_);
+        internetCommDevice->connectToBroker();
+        //internetCommDevice->subscribeToTopic("testing");
+        //internetCommDevice->setQueueName(queueName_);
        // internetCommDevice->setChannel(channel_);
-        connect(internetCommDevice, &InternetCommDevice::dataReceived, this, &CommDeviceManager::handleJsonDataIncoming);
-        connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
-        internetCommDevice->start();
+        connect(internetCommDevice->getClient(), &QMqttClient::messageReceived, this, &CommDeviceManager::handleJsonDataIncoming);
+        // connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
+        // internetCommDevice->start();
     }
 
     // potential to add bluetooth here as a different input device
 }
 
-void CommDeviceManager::handleJsonDataIncoming(QByteArray data)
+void CommDeviceManager::handleJsonDataIncoming(const QByteArray &message)
 {
-    if (!data.isEmpty())
+    if (!message.isEmpty())
     {
-        emit dataReceived(data);
+        qDebug() << message;
+
     }
     else
     {

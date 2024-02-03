@@ -1,9 +1,49 @@
 #include "InternetCommDevice.h"
 #include <QDebug>
 
+InternetCommDevice::InternetCommDevice()
+{
+    mqttClient = new QMqttClient();
+}
+
 void InternetCommDevice::setQueueName(QString queueName)
 {
     queueName_ = queueName;
+}
+
+void InternetCommDevice::connectToBroker()
+{
+    mqttClient->setHostname("test.mosquitto.org");
+    mqttClient->setPort(1883);
+    mqttClient->connectToHost();
+
+    QObject::connect(mqttClient, &QMqttClient::stateChanged, [this](QMqttClient::ClientState state){
+        if(state == QMqttClient::Disconnected)
+            qDebug() << " State: Disconnected";
+        else if(state == QMqttClient::Connecting)
+            qDebug() << " State: Connecting";
+        else if(state == QMqttClient::Connected)
+            qDebug() << " State: Connected";
+            this->subscribeToTopic("testing");
+    });
+
+}
+
+void InternetCommDevice::subscribeToTopic(QString topic)
+{
+    auto subscribe = mqttClient->subscribe(topic);
+    if (!subscribe) {
+        qDebug() << "Could not subscribe";
+    }
+    // QObject::connect(mqttClient, &QMqttClient::messageReceived, [](const QByteArray &message, const QMqttTopicName &topic){
+    //     qDebug() << " Received Topic:" << topic.name() << " Message: " << message;
+    // });
+
+}
+
+ QMqttClient *InternetCommDevice::getClient()
+{
+    return mqttClient;
 }
 
 /* void InternetCommDevice::setChannel(AmqpClient::Channel::ptr_t channel)

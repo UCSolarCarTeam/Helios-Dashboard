@@ -21,7 +21,7 @@ public:
     void disconnectFromDevices();
 
 private slots:
-    void handleJsonDataIncoming(QByteArray);
+    void handleJsonDataIncoming(const QByteArray &message);
 
 private:
     QString queueName_;
