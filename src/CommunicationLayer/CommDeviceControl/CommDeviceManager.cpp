@@ -35,6 +35,7 @@ void CommDeviceManager::handleJsonDataIncoming(const QByteArray &message)
     {
         qDebug() << message;
 
+        emit dataReceived(message);
     }
     else
     {

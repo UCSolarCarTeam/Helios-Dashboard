@@ -24,7 +24,7 @@ void InternetCommDevice::connectToBroker()
             qDebug() << " State: Connecting";
         else if(state == QMqttClient::Connected)
             qDebug() << " State: Connected";
-            this->subscribeToTopic("testing");
+            this->subscribeToTopic("topicCar");
     });
 
 }
