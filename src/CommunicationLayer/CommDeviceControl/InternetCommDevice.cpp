@@ -13,8 +13,8 @@ void InternetCommDevice::setQueueName(QString queueName)
 
 void InternetCommDevice::connectToBroker()
 {
-    mqttClient->setHostname("test.mosquitto.org");
-    mqttClient->setPort(1883);
+    mqttClient->setHostname("127.0.0.1");
+    mqttClient->setPort(6969);
     mqttClient->connectToHost();
 
     QObject::connect(mqttClient, &QMqttClient::stateChanged, [this](QMqttClient::ClientState state){
@@ -24,7 +24,7 @@ void InternetCommDevice::connectToBroker()
             qDebug() << " State: Connecting";
         else if(state == QMqttClient::Connected)
             qDebug() << " State: Connected";
-            this->subscribeToTopic("topicCar");
+            this->subscribeToTopic("hermesExchange");
     });
 
 }
