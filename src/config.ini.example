@@ -5,7 +5,7 @@ packetTitle=Gen5
 
 [SourceAddress]
 ipAddress=127.0.0.1
-port=5672
+port=6969
 
 [rabbitMQ]
 exchangeName=hermesExchange

@@ -13,7 +13,8 @@ void InternetCommDevice::setQueueName(QString queueName)
 
 void InternetCommDevice::connectToBroker()
 {
-    mqttClient->setHostname("127.0.0.1");
+    //connection settings for local testing
+    mqttClient->setHostname("localhost");
     mqttClient->setPort(6969);
     mqttClient->connectToHost();
 

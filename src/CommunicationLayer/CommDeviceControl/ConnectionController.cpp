@@ -1,5 +1,5 @@
-#include "ConnectionController.h"
-
+//#include "ConnectionController.h"
+/*
 ConnectionController::ConnectionController(QString exchangeName
         ,  QString queueName
         ,  QString ipAddress
@@ -10,7 +10,7 @@ ConnectionController::ConnectionController(QString exchangeName
     , ipAddress_(ipAddress)
     , port_(port)
 {
-    if (type_ == CommDefines::Internet)
+    /*if (type_ == CommDefines::Internet)
     {
         InternetConnectionService* internetConnectionService = new InternetConnectionService(exchangeName_, queueName_, ipAddress_, port_);
         internetConnectionService_ = internetConnectionService;
@@ -22,6 +22,7 @@ ConnectionController::ConnectionController(QString exchangeName
 
         // channel_ = internetConnectionService->getChannel();
     }
+
 }
 
 ConnectionController::~ConnectionController()
@@ -58,7 +59,7 @@ void ConnectionController::disconnectFromConnectionService(I_ConnectionService* 
     disconnect(service, 0, this, 0);
 }
 
-/*AmqpClient::Channel::ptr_t ConnectionController::getChannel()
+AmqpClient::Channel::ptr_t ConnectionController::getChannel()
 {
     return channel_;
 }
