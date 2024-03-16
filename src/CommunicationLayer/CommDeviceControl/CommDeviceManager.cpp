@@ -1,9 +1,14 @@
 #include "CommDeviceManager.h"
 #include <QDebug>
 
-CommDeviceManager::CommDeviceManager(/*AmqpClient::Channel::ptr_t channel,*/ QString queueName)
+CommDeviceManager::CommDeviceManager(QString queueName,
+                                     QString ipAddress,
+                                     quint16 port,
+                                     QString exchange)
     : queueName_(queueName)
-    //, channel_(channel)
+    , ipAddress_(ipAddress)
+    , port_(port)
+    , exchange_(exchange)
 {
     connectToDevice(CommDefines::Internet);
 }
@@ -16,14 +21,10 @@ void CommDeviceManager::connectToDevice(CommDefines::Type type)
 {
     if (type == CommDefines::Internet)
     {
-        InternetCommDevice* internetCommDevice = new InternetCommDevice();
+        InternetCommDevice* internetCommDevice = new InternetCommDevice(ipAddress_,port_,exchange_);
         internetCommDevice->connectToBroker();
-        //internetCommDevice->subscribeToTopic("testing");
-        //internetCommDevice->setQueueName(queueName_);
-       // internetCommDevice->setChannel(channel_);
         connect(internetCommDevice->getClient(), &QMqttClient::messageReceived, this, &CommDeviceManager::handleJsonDataIncoming);
         // connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
-        // internetCommDevice->start();
     }
 
     // potential to add bluetooth here as a different input device

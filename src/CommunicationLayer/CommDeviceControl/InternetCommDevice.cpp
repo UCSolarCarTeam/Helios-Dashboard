@@ -1,9 +1,12 @@
 #include "InternetCommDevice.h"
 #include <QDebug>
 
-InternetCommDevice::InternetCommDevice()
+InternetCommDevice::InternetCommDevice(QString ipAddress, quint16 port, QString exchange)
 {
     mqttClient = new QMqttClient();
+    ipAddress_ = ipAddress;
+    port_ =  port;
+    exchange_ = exchange;
 }
 
 void InternetCommDevice::setQueueName(QString queueName)
@@ -14,8 +17,10 @@ void InternetCommDevice::setQueueName(QString queueName)
 void InternetCommDevice::connectToBroker()
 {
     //connection settings for local testing
-    mqttClient->setHostname("localhost");
-    mqttClient->setPort(6969);
+    mqttClient->setHostname(ipAddress_);
+    qDebug() << "Hostname set to: " << ipAddress_;
+    mqttClient->setPort(port_);
+    qDebug() << "Port set to: "<< port_;
     mqttClient->connectToHost();
 
     QObject::connect(mqttClient, &QMqttClient::stateChanged, [this](QMqttClient::ClientState state){
@@ -24,8 +29,10 @@ void InternetCommDevice::connectToBroker()
         else if(state == QMqttClient::Connecting)
             qDebug() << " State: Connecting";
         else if(state == QMqttClient::Connected)
+        {
             qDebug() << " State: Connected";
-            this->subscribeToTopic("hermesExchange");
+            this->subscribeToTopic(exchange_);
+        }
     });
 
 }
@@ -39,6 +46,9 @@ void InternetCommDevice::subscribeToTopic(QString topic)
     // QObject::connect(mqttClient, &QMqttClient::messageReceived, [](const QByteArray &message, const QMqttTopicName &topic){
     //     qDebug() << " Received Topic:" << topic.name() << " Message: " << message;
     // });
+    else {
+        qDebug() <<"Subscribed to topic name: "<< exchange_;
+    }
 
 }
 

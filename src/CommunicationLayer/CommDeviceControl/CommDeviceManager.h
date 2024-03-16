@@ -6,7 +6,6 @@ class QUdpSocket;
 // #include <SimpleAmqpClient/SimpleAmqpClient.h>
 
 #include "CommDefines.h"
-//#include "ConnectionController.h"
 #include "I_CommDevice.h"
 #include "InternetCommDevice.h"
 
@@ -14,7 +13,7 @@ class CommDeviceManager : public I_CommDevice
 {
     Q_OBJECT
 public:
-    CommDeviceManager(/*AmqpClient::Channel::ptr_t channel,*/ QString queueName);
+    CommDeviceManager(/*AmqpClient::Channel::ptr_t channel,*/ QString queueName, QString ipAddress, quint16 port, QString exchange);
     virtual ~CommDeviceManager();
 
     void connectToDevice(CommDefines::Type type);
@@ -25,5 +24,8 @@ private slots:
 
 private:
     QString queueName_;
+    QString ipAddress_;
+    quint16 port_;
+    QString exchange_;
     //AmqpClient::Channel::ptr_t channel_;
 };

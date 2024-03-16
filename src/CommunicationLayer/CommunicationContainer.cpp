@@ -14,7 +14,10 @@ class CommunicationContainerPrivate
 public:
     CommunicationContainerPrivate(BusinessContainer& businessContainer,
                                   InfrastructureContainer& infrastructureContainer)
-        : commDeviceManager_(infrastructureContainer.settings().queue())
+        : commDeviceManager_(infrastructureContainer.settings().queue(),
+                             infrastructureContainer.settings().ipAddress(),
+                             infrastructureContainer.settings().port(),
+                             infrastructureContainer.settings().exchange())
         , jsonReceiver_(businessContainer.auxBmsPopulator(),
                         businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
@@ -30,7 +33,6 @@ public:
     {
         QObject::connect(&commDeviceManager_, SIGNAL(dataReceived(QByteArray)), &jsonReceiver_, SLOT(handleIncomingData(QByteArray)));
     }
-    //ConnectionController connectionController_;
     CommDeviceManager commDeviceManager_;
     JsonReceiver jsonReceiver_;
 };
@@ -44,10 +46,6 @@ CommunicationContainer::~CommunicationContainer()
 {
 }
 
-/*ConnectionController& CommunicationContainer::connectionController()
-{
-    return impl_->connectionController_;
-}*/
 I_JsonReceiver& CommunicationContainer::jsonReceiver()
 {
     return impl_->jsonReceiver_;
