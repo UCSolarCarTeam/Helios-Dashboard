@@ -17,7 +17,6 @@ public:
     ~CommunicationContainer();
 
     I_JsonReceiver& jsonReceiver();
-    ConnectionController& connectionController();
     CommDeviceManager& commDeviceManager();
 
 private:

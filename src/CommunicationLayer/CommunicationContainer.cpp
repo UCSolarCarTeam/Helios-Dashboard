@@ -2,7 +2,6 @@
 
 #include "../DataLayer/DataContainer.h"
 #include "CommunicationContainer.h"
-#include "CommDeviceControl/ConnectionController.h"
 #include "CommDeviceControl/CommDeviceManager.h"
 #include "JsonReceiver/JsonReceiver.h"
 #include "../BusinessLayer/BusinessContainer.h"
@@ -15,12 +14,10 @@ class CommunicationContainerPrivate
 public:
     CommunicationContainerPrivate(BusinessContainer& businessContainer,
                                   InfrastructureContainer& infrastructureContainer)
-        : connectionController_(infrastructureContainer.settings().exchange(),
-                                infrastructureContainer.settings().queue(),
-                                infrastructureContainer.settings().ipAddress(),
-                                infrastructureContainer.settings().port())
-        , commDeviceManager_(/*connectionController_.getChannel(),*/
-                             infrastructureContainer.settings().queue())
+        : commDeviceManager_(infrastructureContainer.settings().queue(),
+                             infrastructureContainer.settings().ipAddress(),
+                             infrastructureContainer.settings().port(),
+                             infrastructureContainer.settings().exchange())
         , jsonReceiver_(businessContainer.auxBmsPopulator(),
                         businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
@@ -36,7 +33,6 @@ public:
     {
         QObject::connect(&commDeviceManager_, SIGNAL(dataReceived(QByteArray)), &jsonReceiver_, SLOT(handleIncomingData(QByteArray)));
     }
-    ConnectionController connectionController_;
     CommDeviceManager commDeviceManager_;
     JsonReceiver jsonReceiver_;
 };
@@ -48,11 +44,6 @@ CommunicationContainer::CommunicationContainer(BusinessContainer& businessContai
 
 CommunicationContainer::~CommunicationContainer()
 {
-}
-
-ConnectionController& CommunicationContainer::connectionController()
-{
-    return impl_->connectionController_;
 }
 
 I_JsonReceiver& CommunicationContainer::jsonReceiver()

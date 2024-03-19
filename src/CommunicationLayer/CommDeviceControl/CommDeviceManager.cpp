@@ -1,9 +1,14 @@
 #include "CommDeviceManager.h"
 #include <QDebug>
 
-CommDeviceManager::CommDeviceManager(/*AmqpClient::Channel::ptr_t channel,*/ QString queueName)
+CommDeviceManager::CommDeviceManager(QString queueName,
+                                     QString ipAddress,
+                                     quint16 port,
+                                     QString exchange)
     : queueName_(queueName)
-    //, channel_(channel)
+    , ipAddress_(ipAddress)
+    , port_(port)
+    , exchange_(exchange)
 {
     connectToDevice(CommDefines::Internet);
 }
@@ -16,22 +21,20 @@ void CommDeviceManager::connectToDevice(CommDefines::Type type)
 {
     if (type == CommDefines::Internet)
     {
-        InternetCommDevice* internetCommDevice = new InternetCommDevice();
-        internetCommDevice->setQueueName(queueName_);
-       // internetCommDevice->setChannel(channel_);
-        connect(internetCommDevice, &InternetCommDevice::dataReceived, this, &CommDeviceManager::handleJsonDataIncoming);
-        connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
-        internetCommDevice->start();
+        InternetCommDevice* internetCommDevice = new InternetCommDevice(ipAddress_,port_,exchange_);
+        internetCommDevice->connectToBroker();
+        connect(internetCommDevice->getClient(), &QMqttClient::messageReceived, this, &CommDeviceManager::handleJsonDataIncoming);
     }
 
-    // potential to add bluetooth here as a different input device
 }
 
-void CommDeviceManager::handleJsonDataIncoming(QByteArray data)
+void CommDeviceManager::handleJsonDataIncoming(const QByteArray &message)
 {
-    if (!data.isEmpty())
+    if (!message.isEmpty())
     {
-        emit dataReceived(data);
+        qDebug() << message;
+
+        emit dataReceived(message);
     }
     else
     {
