@@ -3,8 +3,6 @@
 class QIODevice;
 class QUdpSocket;
 
-// #include <SimpleAmqpClient/SimpleAmqpClient.h>
-
 #include "CommDefines.h"
 #include "I_CommDevice.h"
 #include "InternetCommDevice.h"
@@ -27,5 +25,4 @@ private:
     QString ipAddress_;
     quint16 port_;
     QString exchange_;
-    //AmqpClient::Channel::ptr_t channel_;
 };
