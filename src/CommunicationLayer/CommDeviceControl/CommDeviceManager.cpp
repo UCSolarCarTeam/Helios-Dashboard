@@ -24,10 +24,8 @@ void CommDeviceManager::connectToDevice(CommDefines::Type type)
         InternetCommDevice* internetCommDevice = new InternetCommDevice(ipAddress_,port_,exchange_);
         internetCommDevice->connectToBroker();
         connect(internetCommDevice->getClient(), &QMqttClient::messageReceived, this, &CommDeviceManager::handleJsonDataIncoming);
-        // connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
     }
 
-    // potential to add bluetooth here as a different input device
 }
 
 void CommDeviceManager::handleJsonDataIncoming(const QByteArray &message)
