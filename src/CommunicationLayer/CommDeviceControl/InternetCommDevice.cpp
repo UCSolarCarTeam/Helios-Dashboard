@@ -43,9 +43,7 @@ void InternetCommDevice::subscribeToTopic(QString topic)
     if (!subscribe) {
         qDebug() << "Could not subscribe";
     }
-    // QObject::connect(mqttClient, &QMqttClient::messageReceived, [](const QByteArray &message, const QMqttTopicName &topic){
-    //     qDebug() << " Received Topic:" << topic.name() << " Message: " << message;
-    // });
+
     else {
         qDebug() <<"Subscribed to topic name: "<< exchange_;
     }
@@ -57,20 +55,11 @@ void InternetCommDevice::subscribeToTopic(QString topic)
     return mqttClient;
 }
 
-/* void InternetCommDevice::setChannel(AmqpClient::Channel::ptr_t channel)
-{
-    channel_ = channel;
-}
-*/
-
 void InternetCommDevice::run()
 {
-    // std::string consumer_tag = channel_->BasicConsume(queueName_.toStdString(), "", true, true, false);
 
     while (1)
     {
-        // AmqpClient::Envelope::ptr_t envelope = channel_->BasicConsumeMessage(consumer_tag);
-        // QString str = QString::fromStdString(envelope->Message()->Body());
         QString str = "test";
         QByteArray dat = str.toUtf8();
 
