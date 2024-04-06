@@ -29,6 +29,17 @@ Rectangle {
         }
     }
 
+    DigitalSpeedComponenent {
+        id: digitalSpeedComponent
+        x: 85
+        y: 285
+        smooth: false
+        sport: globalSportmode
+        speed: main.state == "chargeBehind" || main.state == "chargeUp"
+               || main.state == "chargeSide" ? 0.0 : globalDrivespeed
+        night: globalNightMode
+    }
+
     Text {
         id: label
         text: qsTr("Hello HeliosQMLDash")
@@ -56,6 +67,10 @@ Rectangle {
                 from: "#2294c6"
             }
         }
+    }
+
+    Item {
+        id: __materialLibrary__
     }
     states: [
         State {
