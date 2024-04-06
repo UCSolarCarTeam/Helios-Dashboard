@@ -68,25 +68,6 @@ Item {
             }
         }
     }
-    ShaderEffectSource {
-        id: digitalSpeedSource
-        sourceItem: digitalSpeedItem
-        textureSize: Qt.size(digitalSpeedItem.width / 2, digitalSpeedItem.height / 2)
-        visible: false
-        // No mirroring means texture is vertically flipped
-        textureMirroring: ShaderEffectSource.NoMirroring
-    }
-    FastBlurEffect {
-        id: blurEffect
-        anchors.top: digitalSpeedItem.bottom
-        anchors.topMargin: -55
-        width: digitalSpeedItem.width
-        height: digitalSpeedItem.height
-        source: digitalSpeedSource
-        radius: 32
-        opacity: 0.265
-        z: -1
-    }
 
     states: [
         State {

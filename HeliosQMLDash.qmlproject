@@ -6,27 +6,27 @@ Project {
 
     /* Include .qml, .js, and image files from current directory and subdirectories */
     QmlFiles {
-        directory: "content"
+        directory: "."
     }
 
     QmlFiles {
-        directory: "imports"
+        directory: "."
     }
 
     JavaScriptFiles {
-        directory: "content"
+        directory: "."
     }
 
     JavaScriptFiles {
-        directory: "imports"
+        directory: "."
     }
 
     ImageFiles {
-        directory: "content"
+        directory: "."
     }
 
     ImageFiles {
-        directory: "asset_imports"
+        directory: "."
     }
 
     Files {
