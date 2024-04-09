@@ -69,6 +69,7 @@ Item {
         }
     }
 
+
     states: [
         State {
             name: "day"

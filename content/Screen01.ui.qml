@@ -1,10 +1,11 @@
+
+
 /*
 This is a UI file (.ui.qml) that is intended to be edited in Qt Design Studio only.
 It is supposed to be strictly declarative and only uses a subset of QML. If you edit
 this file manually, you might introduce QML code that is not supported by Qt Design Studio.
 Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on .ui.qml files.
 */
-
 import QtQuick 6.2
 import QtQuick.Controls 6.2
 import HeliosQMLDash
@@ -20,6 +21,8 @@ Rectangle {
         id: button
         text: qsTr("Press me")
         anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -447
+        anchors.horizontalCenterOffset: -19
         checkable: true
         anchors.horizontalCenter: parent.horizontalCenter
 
@@ -31,8 +34,8 @@ Rectangle {
 
     DigitalSpeedComponenent {
         id: digitalSpeedComponent
-        x: 85
-        y: 285
+        x: 691
+        y: 201
         smooth: false
         sport: globalSportmode
         speed: main.state == "chargeBehind" || main.state == "chargeUp"
@@ -45,7 +48,8 @@ Rectangle {
         text: qsTr("Hello HeliosQMLDash")
         anchors.top: button.bottom
         font.family: Constants.font.family
-        anchors.topMargin: 45
+        anchors.topMargin: 808
+        anchors.horizontalCenterOffset: -19
         anchors.horizontalCenter: parent.horizontalCenter
 
         SequentialAnimation {
