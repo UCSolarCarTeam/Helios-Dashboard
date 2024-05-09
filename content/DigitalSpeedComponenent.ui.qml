@@ -28,7 +28,7 @@
 ****************************************************************************/
 
 import QtQuick
-import QtQuick.Studio.Effects 1.0
+//import QtQuick.Studio.Effects 1.0
 
 Item {
     id: digitalSpeedComponent

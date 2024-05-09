@@ -7,13 +7,15 @@ project(HeliosQMLDashApp LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick)
+find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick Mqtt)
 
 if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
     qt_standard_project_setup()
 endif()
 
-qt_add_executable(HeliosQMLDashApp src/main.cpp)
+qt_add_executable(HeliosQMLDashApp src/main.cpp
+    src/test2.h src/test2.cpp
+    src/CommDeviceControl/CommDefines.h src/CommDeviceControl/CommDeviceManager.cpp src/CommDeviceControl/CommDeviceManager.h src/CommDeviceControl/I_CommDevice.h src/CommDeviceControl/I_ConnectionService.h src/CommDeviceControl/InternetCommDevice.cpp src/CommDeviceControl/InternetCommDevice.h)
 
 qt_add_resources(HeliosQMLDashApp "configuration"
     PREFIX "/"
@@ -26,6 +28,7 @@ target_link_libraries(HeliosQMLDashApp PRIVATE
     Qt6::Gui
     Qt6::Qml
     Qt6::Quick
+    Qt6::Mqtt
 )
 
 if (BUILD_QDS_COMPONENTS)
