@@ -3,6 +3,8 @@
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "./CommDeviceControl/CommDeviceManager.h"
+#include "CommDeviceControl/InternetCommDevice.h"
 
 #include "app_environment.h"
 #include "import_qml_components_plugins.h"
@@ -34,6 +36,12 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
+    //CommDeviceManager& commDeviceManager();
+    CommDeviceManager commDeviceManager_ = CommDeviceManager("rabbitMQ/queueName",
+                                               "127.0.0.1",
+                                                quint16(6969),
+                                               "hermesExchangee");
+    //commDeviceManager_
 
     return app.exec();
 }
