@@ -20,7 +20,7 @@ namespace
 
 EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
 //    : QApplication(argc, argv)
-    , infrastructureContainer_(new InfrastructureContainer())
+    : infrastructureContainer_(new InfrastructureContainer())
     , dataContainer_(new DataContainer())
     , businessContainer_(new BusinessContainer(*dataContainer_))
     , presenterContainer_(new PresenterContainer(*dataContainer_))
