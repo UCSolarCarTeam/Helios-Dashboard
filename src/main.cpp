@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     //CommDeviceManager& commDeviceManager();
+    //mosquitto test
     CommDeviceManager commDeviceManager_ = CommDeviceManager("rabbitMQ/queueName",
                                                "127.0.0.1",
                                                 quint16(6969),
