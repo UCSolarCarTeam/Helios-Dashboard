@@ -28,8 +28,8 @@
 
 #include "DriverControlsPopulator.h"
 
-#include "/home/solarcar/Helios-Dashboard/src/BusinessLayer/DataPopulators/JsonDefines.h"
-#include "/home/solarcar/Helios-Dashboard/src/BusinessLayer/DataPopulators/DriverControlsPopulator/I_DriverControlsPopulator.h"
+#include "src/BusinessLayer/DataPopulators/JsonDefines.h"
+#include "src/BusinessLayer/DataPopulators/DriverControlsPopulator/I_DriverControlsPopulator.h"
 
 DriverControlsPopulator::DriverControlsPopulator(I_DriverControlsData& driverControlsData)
     : driverControlsData_(driverControlsData)
