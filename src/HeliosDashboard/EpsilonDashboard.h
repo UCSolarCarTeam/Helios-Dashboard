@@ -23,8 +23,8 @@ private:
     QScopedPointer<BusinessContainer> businessContainer_;
     QScopedPointer<CommunicationContainer> communicationContainer_;
     QScopedPointer<PresenterContainer> presenterContainer_;
-    QScopedPointer<ViewContainer> viewContainer_;
-    QScopedPointer<FontLoader> fontLoader_;
+    //QScopedPointer<ViewContainer> viewContainer_;
+    //QScopedPointer<FontLoader> fontLoader_;
 
 
 };

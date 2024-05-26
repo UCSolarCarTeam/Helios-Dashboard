@@ -23,7 +23,7 @@ signals:
     void motorZeroBusPowerReceived(double);
     void motorOneBusPowerReceived(double);
 
-    void motorSetCurrentReceived(double);
+    void motorSetCurrentReceived(double num);
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);
     void motorBusCurrentReceived(double);

@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QDir>
 
-int main(int argc, char* argv[])
+int main2(int argc, char* argv[])
 {
 #if QT_VERSION >= 0x050600
     //QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -32,5 +32,5 @@ int main(int argc, char* argv[])
 
     QScopedPointer<EpsilonDashboard> app;
     app.reset(new EpsilonDashboard(argc, argv));
-    return app->exec();
+    //return app->exec();
 }

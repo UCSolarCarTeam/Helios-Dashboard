@@ -7,7 +7,7 @@
 //#include "/ViewLayer/ViewContainer.h"
 #include "../InfrastructureLayer/InfrastructureContainer.h"
 #include "EpsilonDashboard.h"
-//#include "../ViewLayer/FontLoader/FontLoader.h"
+//#include "src/ViewLayer/FontLoader/FontLoader.h"
 
 #include <QString>
 
@@ -24,7 +24,7 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     , dataContainer_(new DataContainer())
     , businessContainer_(new BusinessContainer(*dataContainer_))
     , presenterContainer_(new PresenterContainer(*dataContainer_))
-    , fontLoader_(new FontLoader)
+    //, fontLoader_(new FontLoader)
 {
     QCommandLineParser parser;
     QCommandLineOption raceModeOption("r");
@@ -34,8 +34,8 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     parser.addOption(debugModeOption);
     parser.addOption(isWindowedMode);
 
-    parser.process(*this);
-    Mode mode = Mode::DISPLAY;
+    //parser.process(*this);
+    //Mode mode = Mode::DISPLAY;
     bool isWindowed = false;
 
     if (parser.isSet(isWindowedMode))
@@ -45,12 +45,12 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
 
     if (parser.isSet(raceModeOption))
     {
-        mode = Mode::RACE;
+        //mode = Mode::RACE;
         infrastructureContainer_->setQueueName(RACE_QUEUE);
     }
     else if (parser.isSet(debugModeOption))
     {
-        mode = Mode::DEBUG;
+        //mode = Mode::DEBUG;
         infrastructureContainer_->setQueueName(DEBUG_QUEUE);
     }
     else
@@ -58,11 +58,11 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
         infrastructureContainer_->setQueueName(DISPLAY_QUEUE);
     }
 
-    Q_INIT_RESOURCE(fontresources);
+    //Q_INIT_RESOURCE(fontresources);
 
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
+    //QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 
-    viewContainer_.reset(new ViewContainer(*presenterContainer_, mode, isWindowed)); //pass in a third boolean variable
+    //viewContainer_.reset(new ViewContainer(*presenterContainer_, mode, isWindowed)); //pass in a third boolean variable
     communicationContainer_.reset(new CommunicationContainer(*businessContainer_, *infrastructureContainer_));
 }
 

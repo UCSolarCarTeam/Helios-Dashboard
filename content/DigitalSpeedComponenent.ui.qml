@@ -67,6 +67,11 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }
+
+        Connections {
+            target: motorPop
+            onMotorSetCurrentReceived: text1.text = num
+        }
     }
 
     states: [

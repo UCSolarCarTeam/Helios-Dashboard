@@ -19,6 +19,7 @@ KeyMotor KeyMotorData::motorOne() const
 }
 void KeyMotorData::setMotorZero(KeyMotor motorZero)
 {
+    qDebug() << "motorZero activated";
     motorZero_ = motorZero;
     emit motorZeroReceived(motorZero_);
     emit motorSetCurrentReceived((motorZero_.setCurrent() + motorOne_.setCurrent()) / 2);
