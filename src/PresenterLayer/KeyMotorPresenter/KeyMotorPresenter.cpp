@@ -1,14 +1,19 @@
 #include "KeyMotorPresenter.h"
-
+#include "src/HeliosDashboard/EpsilonDashboard.h"
+#include <QQmlContext>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 
 KeyMotorPresenter::KeyMotorPresenter(const I_KeyMotorData& keyMotorData)
     : keyMotorData_(keyMotorData)
 {
     relayKeyMotorData();
+    //EpsilonDashboard.engine_->rootContext();
 }
 
 void KeyMotorPresenter::relayKeyMotorData()
 {
+
     connect(&keyMotorData_, SIGNAL(motorZeroReceived(KeyMotor)),
             this, SIGNAL(motorZeroReceived(KeyMotor)));
     connect(&keyMotorData_, SIGNAL(motorOneReceived(KeyMotor)),

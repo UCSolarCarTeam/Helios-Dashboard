@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QScopedPointer>
+#include <QQmlApplicationEngine>
 
 class I_AuxBmsData;
 class I_BatteryData;
@@ -16,9 +17,10 @@ class I_MotorFaultsData;
 class DataContainer
 {
 public:
-    DataContainer();
+    DataContainer(QQmlApplicationEngine& engine);
     ~DataContainer();
 
+    QQmlApplicationEngine* engine_;
     I_AuxBmsData& auxBmsData();
     I_BatteryData& batteryData();
     I_BatteryFaultsData& batteryFaultsData();

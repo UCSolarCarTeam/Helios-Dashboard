@@ -1,6 +1,7 @@
 #pragma once
 
 //#include <QApplication>
+#include <QQmlApplicationEngine>
 #include <QScopedPointer>
 
 class CommunicationContainer;
@@ -14,8 +15,10 @@ class FontLoader;
 class EpsilonDashboard
 {
 public:
-    EpsilonDashboard(int& argc, char** argv);
+    EpsilonDashboard(int& argc, char** argv, QQmlApplicationEngine& engine) ;
     ~EpsilonDashboard();
+    QQmlApplicationEngine* engine_;
+
 
 private:
     QScopedPointer<InfrastructureContainer> infrastructureContainer_;

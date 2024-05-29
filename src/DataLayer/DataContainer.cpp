@@ -9,9 +9,12 @@
 #include "MotorDetailsData/MotorDetailsData.h"
 #include "MotorFaultsData/MotorFaultsData.h"
 #include "DataContainer.h"
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
-DataContainer::DataContainer()
+DataContainer::DataContainer(QQmlApplicationEngine& engine)
     : auxBmsData_(new AuxBmsData())
+    , engine_(&engine)
     , batteryData_(new BatteryData())
     , batteryFaultsData_(new BatteryFaultsData())
     , ccsData_(new CcsData())
@@ -22,6 +25,7 @@ DataContainer::DataContainer()
     , motorDetailsData_(new MotorDetailsData())
     , motorFaultsData_(new MotorFaultsData())
 {
+    engine.rootContext()->setContextProperty("keyMotorData_", keyMotorData_.data());
 }
 
 DataContainer::~DataContainer()

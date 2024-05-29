@@ -69,7 +69,7 @@ Item {
         }
 
         Connections {
-            target: motorPop
+            target: keyMotorData_
             onMotorSetCurrentReceived: text1.text = num
         }
     }

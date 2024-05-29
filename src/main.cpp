@@ -57,6 +57,6 @@ int main(int argc, char *argv[])
     //commDeviceManager_
 
     QScopedPointer<EpsilonDashboard> dashboard;
-    dashboard.reset(new EpsilonDashboard(argc, argv));
+    dashboard.reset(new EpsilonDashboard(argc, argv, engine));
     return app.exec();
 }

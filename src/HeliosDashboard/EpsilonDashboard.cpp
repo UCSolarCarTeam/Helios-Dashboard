@@ -1,5 +1,6 @@
 #include <QCommandLineParser>
 
+#include <QQmlApplicationEngine>
 #include "../DataLayer/DataContainer.h"
 #include "src/CommunicationContainer.h"
 #include "../BusinessLayer/BusinessContainer.h"
@@ -18,10 +19,11 @@ namespace
     const char* DEBUG_QUEUE = "debugQueue";
 }
 
-EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
+EpsilonDashboard::EpsilonDashboard(int& argc, char** argv, QQmlApplicationEngine& engine)
 //    : QApplication(argc, argv)
-    : infrastructureContainer_(new InfrastructureContainer())
-    , dataContainer_(new DataContainer())
+    : engine_(&engine)
+    , infrastructureContainer_(new InfrastructureContainer())
+    , dataContainer_(new DataContainer(engine))
     , businessContainer_(new BusinessContainer(*dataContainer_))
     , presenterContainer_(new PresenterContainer(*dataContainer_))
     //, fontLoader_(new FontLoader)
@@ -33,6 +35,8 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     parser.addOption(raceModeOption);
     parser.addOption(debugModeOption);
     parser.addOption(isWindowedMode);
+
+    //engine_ = &engine;
 
     //parser.process(*this);
     //Mode mode = Mode::DISPLAY;
