@@ -26,6 +26,7 @@ DataContainer::DataContainer(QQmlApplicationEngine& engine)
     , motorFaultsData_(new MotorFaultsData())
 {
     engine.rootContext()->setContextProperty("keyMotorData_", keyMotorData_.data());
+    engine.rootContext()->setContextProperty("driverControlsData_", driverControlsData_.data());
 }
 
 DataContainer::~DataContainer()

@@ -66,11 +66,17 @@ Item {
                 font.pixelSize: 20
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
+            Connections {
+                target: keyMotorData_
+                onMotorSetCurrentReceived: text1.text = num
+            }
+
         }
 
         Connections {
-            target: keyMotorData_
-            onMotorSetCurrentReceived: text1.text = num
+            target: driverControlsData_
+            onAccelerationReceived: digitalSpeed.text = num
         }
     }
 

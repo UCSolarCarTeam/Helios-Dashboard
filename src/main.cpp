@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    KeyMotorData* motorPop = new KeyMotorData();
+    //KeyMotorData* motorPop = new KeyMotorData();
 
     const QUrl url(u"qrc:/qt/qml/Main/main.qml"_qs);
     QObject::connect(
@@ -42,12 +42,12 @@ int main(int argc, char *argv[])
     engine.addImportPath(":/");
     engine.load(url);
 
-    engine.rootContext()->setContextProperty("motorPop", motorPop);
+    //engine.rootContext()->setContextProperty("motorPop", motorPop);
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
 
-    emit motorPop->motorSetCurrentReceived(12);
+    //emit motorPop->motorSetCurrentReceived(12);
     //CommDeviceManager& commDeviceManager();
     //mosquitto test
     //CommDeviceManager commDeviceManager_ = CommDeviceManager("rabbitMQ/queueName",

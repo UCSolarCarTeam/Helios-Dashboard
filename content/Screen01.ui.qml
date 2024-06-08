@@ -34,10 +34,10 @@ Rectangle {
         x: 85
         y: 285
         smooth: false
-        sport: globalSportmode
+        //sport: globalSportmode
         speed: main.state == "chargeBehind" || main.state == "chargeUp"
                || main.state == "chargeSide" ? 0.0 : globalDrivespeed
-        night: globalNightMode
+        //night: globalNightMode
     }
 
     Text {

@@ -67,7 +67,7 @@ signals:
     void volumeDownReceived(bool);
     void nextSongReceived(bool);
     void prevSongReceived(bool);
-    void accelerationReceived(double);
+    void accelerationReceived(double num);
     void regenBrakingReceived(double);
     void brakesReceived(bool);
     void forwardReceived(bool);
