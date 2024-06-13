@@ -14,7 +14,6 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(HeliosQMLDashApp src/main.cpp
-    src/test2.h src/test2.cpp
     src/CommDeviceControl/CommDefines.h src/CommDeviceControl/CommDeviceManager.cpp src/CommDeviceControl/CommDeviceManager.h src/CommDeviceControl/I_CommDevice.h src/CommDeviceControl/I_ConnectionService.h src/CommDeviceControl/InternetCommDevice.cpp src/CommDeviceControl/InternetCommDevice.h
     src/JsonReceiver/I_JsonReceiver.h src/JsonReceiver/JsonReceiver.cpp src/JsonReceiver/JsonReceiver.h
     src/Logging/Logging.cpp src/Logging/Logging.h

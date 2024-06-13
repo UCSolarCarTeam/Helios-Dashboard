@@ -3,6 +3,7 @@
 
 import QtQuick 6.2
 import HeliosQMLDash
+import QtQuick.Window
 
 Window {
     width: mainScreen.width
@@ -15,5 +16,16 @@ Window {
         id: mainScreen
     }
 
+    Window {
+        objectName: "window1"
+        width: 1280
+        height: 720
+
+        visible: true
+
+        Screen01 {
+            id: secondaryScreen
+        }
+    }
 }
 

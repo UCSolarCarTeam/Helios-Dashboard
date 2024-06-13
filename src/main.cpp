@@ -4,6 +4,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QScreen>
+#include <QQuickView>
+#include <QQuickWindow>
 #include "./CommDeviceControl/CommDeviceManager.h"
 #include "CommDeviceControl/InternetCommDevice.h"
 #include "HeliosDashboard/EpsilonDashboard.h"
@@ -41,6 +44,10 @@ int main(int argc, char *argv[])
     engine.addImportPath(QCoreApplication::applicationDirPath() + "/qml");
     engine.addImportPath(":/");
     engine.load(url);
+
+    QQuickWindow *window1 = engine.rootObjects()[0]->findChild<QQuickWindow *>("window1");
+    if(window1)
+        window1->setTitle("Debug Dashboard");
 
     //engine.rootContext()->setContextProperty("motorPop", motorPop);
     if (engine.rootObjects().isEmpty()) {
