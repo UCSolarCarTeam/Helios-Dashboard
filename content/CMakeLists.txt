@@ -13,4 +13,5 @@ qt6_add_qml_module(content
     RESOURCES
         fonts/fonts.txt
         SOURCES test.h test.cpp
+        QML_FILES Screen2.qml
 )

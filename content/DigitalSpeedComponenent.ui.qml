@@ -1,108 +1,474 @@
-/****************************************************************************
-**
-** Copyright (C) 2022 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of Outrun demo.
-**
-** $QT_BEGIN_LICENSE:GPL$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3 or (at your option) any later version
-** approved by the KDE Free Qt Foundation. The licenses are as published by
-** the Free Software Foundation and appearing in the file LICENSE.GPL3
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
 
-import QtQuick
-//import QtQuick.Studio.Effects 1.0
+import QtQuick 6.2
+import QtQuick.Controls 6.2
+import HeliosQMLDash
 
-Item {
-    id: digitalSpeedComponent
+Rectangle {
+    id: rectangle
+    width: Constants.width
+    height: Constants.height
 
-    property int speed: 40
-    property bool night: false
-    property bool sport: false
-
-    width: 500
-    height: 720
+    color: Constants.backgroundColor
 
     Item {
-        id: digitalSpeedItem
-        // Note: Adjust the size based on font size,
-        // to have suitable amount of margins for blur
-        width: 500
-        height: 300
-        antialiasing: true
-        layer.smooth: true
-        Text {
-            id: digitalSpeed
-            anchors.centerIn: parent
-            color: "#ffffff"
-            text: speed
-            font.pixelSize: 260
-            renderType: Text.NativeRendering
-            font.weight: Font.Bold
-            font.family: "Exo 2"
-
-            Text {
-                id: text1
-                y: 35
-                color: "#ffffff"
-                text: qsTr("km/h")
-                font.pixelSize: 20
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            Connections {
-                target: keyMotorData_
-                onMotorSetCurrentReceived: text1.text = num
-            }
-
-        }
-
-        Connections {
-            target: driverControlsData_
-            onAccelerationReceived: digitalSpeed.text = num
-        }
+        id: __materialLibrary__
     }
 
-    states: [
-        State {
-            name: "day"
-            when: night == false
-
-            PropertyChanges {
-                target: digitalSpeed
-                color: "#000000"
-            }
-
-            PropertyChanges {
-                target: text1
-                color: "#000000"
-            }
-        }
-    ]
-    transitions: Transition {
-        ColorAnimation {
-            id: coloranimation
-            properties: "color"
-            easing.type: Easing.InOutQuad
-            duration: 1500
-        }
+    Text {
+        id: offText
+        x: 52
+        y: 188
+        width: 40
+        height: 51
+        text: qsTr("off")
+        font.pixelSize: 20
     }
+
+    Text {
+        id: lowText
+        x: 98
+        y: 188
+        width: 40
+        height: 51
+        text: qsTr("low")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: highText
+        x: 151
+        y: 188
+        width: 40
+        height: 51
+        text: qsTr("high")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: headlight_label
+        x: 53
+        y: 147
+        width: 72
+        height: 51
+        text: qsTr("HeadLights")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: signal_label
+        x: 257
+        y: 147
+        width: 72
+        height: 35
+        text: qsTr("Signal")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: signalLeftText
+        x: 257
+        y: 188
+        width: 40
+        height: 51
+        text: qsTr("left")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: signalRightText
+        x: 309
+        y: 188
+        width: 40
+        height: 51
+        text: qsTr("right")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: horn_label
+        x: 479
+        y: 147
+        width: 72
+        height: 51
+        text: qsTr("Horn")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: hazardText
+        x: 366
+        y: 188
+        width: 40
+        height: 51
+        text: qsTr("yooooo")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: hornText
+        x: 479
+        y: 188
+        width: 40
+        height: 51
+        text: qsTr("On")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: interior_label
+        x: 53
+        y: 245
+        width: 72
+        height: 51
+        text: qsTr("Interior")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: interiorText
+        x: 52
+        y: 286
+        width: 40
+        height: 51
+        text: qsTr("On")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: push_label
+        x: 183
+        y: 245
+        width: 72
+        height: 51
+        text: qsTr("Push to Talk")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: pushToTalkText
+        x: 183
+        y: 286
+        width: 40
+        height: 51
+        text: qsTr("On")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: communication_label
+        x: 374
+        y: 245
+        width: 72
+        height: 51
+        text: qsTr("Communication")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: driverText
+        x: 374
+        y: 286
+        width: 40
+        height: 51
+        text: qsTr("Driver")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: lightsText
+        x: 452
+        y: 286
+        width: 40
+        height: 51
+        text: qsTr("Lights")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: ccsText
+        x: 533
+        y: 286
+        width: 40
+        height: 51
+        text: qsTr("CCS")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: song_label
+        x: 54
+        y: 674
+        width: 72
+        height: 51
+        text: qsTr("Song")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: prevSongText
+        x: 53
+        y: 715
+        width: 40
+        height: 51
+        text: qsTr("Prev")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: nextSongText
+        x: 111
+        y: 715
+        width: 40
+        height: 51
+        text: qsTr("Next")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: volume_label
+        x: 216
+        y: 674
+        width: 72
+        height: 51
+        text: qsTr("Volume")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: volumeUpText
+        x: 215
+        y: 715
+        width: 40
+        height: 51
+        text: qsTr("Up")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: volumeDownText
+        x: 273
+        y: 715
+        width: 40
+        height: 51
+        text: qsTr("Down")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: brake_label
+        x: 53
+        y: 530
+        width: 72
+        height: 51
+        text: qsTr("Brakes")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: brakesText
+        x: 53
+        y: 578
+        width: 40
+        height: 51
+        text: qsTr("On")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: drivemode_label
+        x: 215
+        y: 530
+        width: 72
+        height: 51
+        text: qsTr("Drive Mode")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: forwardText
+        x: 215
+        y: 578
+        width: 40
+        height: 51
+        text: qsTr("Forward")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: reverseText
+        x: 301
+        y: 578
+        width: 40
+        height: 51
+        text: qsTr("Reverse")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: auxText
+        x: 385
+        y: 578
+        width: 40
+        height: 51
+        text: qsTr("Aux")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: reset_label
+        x: 452
+        y: 530
+        width: 72
+        height: 51
+        text: qsTr("Reset")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: bmsText
+        x: 452
+        y: 441
+        width: 40
+        height: 51
+        text: qsTr("On")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: acceleration_label
+        x: 54
+        y: 395
+        width: 72
+        height: 51
+        text: qsTr("Acceleration")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: regenbrake_label
+        x: 241
+        y: 395
+        width: 72
+        height: 51
+        text: qsTr("Regen Braking")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: bms_label
+        x: 452
+        y: 395
+        width: 72
+        height: 51
+        text: qsTr("BMS")
+        font.pixelSize: 25
+        font.bold: true
+    }
+
+    Text {
+        id: accelerationText
+        x: 53
+        y: 441
+        width: 40
+        height: 51
+        text: qsTr("0")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: regenBrakingText
+        x: 241
+        y: 441
+        width: 40
+        height: 51
+        text: qsTr("0")
+        font.pixelSize: 20
+    }
+
+    Text {
+        id: resetText
+        x: 452
+        y: 578
+        width: 40
+        height: 51
+        text: qsTr("On")
+        font.pixelSize: 20
+    }
+
+    Connections {
+        target: driverControlsData_
+        onHeadlightsOffReceived: {
+                    offText.color = val ? "#00FF00" : "#000000"
+                }
+                onHeadlightsLowReceived: {
+                    lowText.color = val ? "#00FF00" : "#000000"
+                }
+                onHeadlightsHighReceived: {
+                    highText.color = val ? "#00FF00" : "#000000"
+                }
+                onSignalLeftReceived: {
+                    signalLeftText.color = val ? "#FFFF00" : "#000000"
+                }
+                onSignalRightReceived: {
+                    signalRightText.color = val ? "#FFFF00" : "#000000"
+                }
+                onHazardReceived: {
+                    hazardText.color = val ? "#00FF00" : "#000000"
+                }
+                onInteriorReceived: {
+                    interiorText.color = val ? "#00FF00" : "#000000"
+                }
+                onAuxReceived: {
+                    auxText.color = val ? "#00FF00" : "#000000"
+                }
+                onVolumeUpReceived: {
+                    volumeUpText.color = val ? "#00FF00" : "#000000"
+                }
+                onVolumeDownReceived: {
+                    volumeDownText.color = val ? "#00FF00" : "#000000"
+                }
+                onNextSongReceived: {
+                    nextSongText.color = val ? "#00FF00" : "#000000"
+                }
+                onPrevSongReceived: {
+                    prevSongText.color = val ? "#00FF00" : "#000000"
+                }
+                onAccelerationReceived: {
+                    accelerationText.text = num + "%"
+                }
+                onRegenBrakingReceived: {
+                    regenBrakingText.text = num + "%"
+                }
+                onBrakesReceived: {
+                    brakesText.color = val ? "#00FF00" : "#000000"
+                }
+                onForwardReceived: {
+                    forwardText.color = val ? "#00FF00" : "#000000"
+                }
+                onReverseReceived: {
+                    reverseText.color = val ? "#00FF00" : "#000000"
+                }
+                onPushToTalkReceived: {
+                    pushToTalkText.color = val ? "#00FF00" : "#000000"
+                }
+                onHornReceived: {
+                    hornText.color = val ? "#00FF00" : "#000000"
+                }
+                onResetReceived: {
+                    resetText.color = val ? "#00FF00" : "#000000"
+                }
+            }
 }
-
