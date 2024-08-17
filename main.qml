@@ -7,28 +7,28 @@ import content
 
 ApplicationWindow {
     visible: true
-    width: 1280
-    height: 720
+    width: 1920
+    height: 550
 
     StackView {
         id: stackView
         anchors.top: parent.top
 
-        initialItem: "../content/App.qml"
+        initialItem: "../content/DriverControlsScreen.qml"
     }
     ToolBar {
         id: toolBar
         x: 8
         y: 42
-        width: 579
-        height: 48
+        width: 1800
+        height: 50
 
         ToolButton {
             id: controlScreen
             x: 0
             y: 0
             text: qsTr("Control")
-            onClicked: stackView.push("../content/App.qml")
+            onClicked: stackView.push("../content/DriverControlsScreen.qml")
 
             ToolSeparator {
                 x: 77
@@ -40,7 +40,7 @@ ApplicationWindow {
             x: 110
             y: 0
             text: qsTr("MPPT")
-            onClicked: stackView.push("../content/Screen2.qml")
+            onClicked: stackView.push("../content/MpptScreen.qml")
 
             ToolSeparator {
 
@@ -53,7 +53,7 @@ ApplicationWindow {
             x: 180
             y: 0
             text: qsTr("Faults")
-            onClicked: stackView.push("../content/Screen2.qml")
+            onClicked: stackView.push("../content/FaultsScreen.qml")
 
             ToolSeparator {
 
@@ -66,7 +66,7 @@ ApplicationWindow {
             x: 240
             y: 0
             text: qsTr("Motor")
-            onClicked: stackView.push("../content/Screen2.qml")
+            onClicked: stackView.push("../content/MotorScreen.qml")
 
             ToolSeparator {
 
@@ -79,7 +79,7 @@ ApplicationWindow {
             x: 300
             y: 0
             text: qsTr("Battery")
-            onClicked: stackView.push("../content/Screen2.qml")
+            onClicked: stackView.push("../content/BatteryScreen.qml")
 
             ToolSeparator {
 
@@ -92,7 +92,7 @@ ApplicationWindow {
             x: 380
             y: 0
             text: qsTr("Aux BMS")
-            onClicked: stackView.push("../content/Screen2.qml")
+            onClicked: stackView.push("../content/AuxbmsScreen.qml")
 
             ToolSeparator {
 

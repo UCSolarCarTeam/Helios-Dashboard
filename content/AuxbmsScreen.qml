@@ -7,12 +7,12 @@ import HeliosQMLDash
 import QtQuick.Window
 
 Item {
-    width: 600
-    height: 800
+    width: 1920
+    height: 550
 
     visible: true
 
-    Screen01 {
+    Auxbms {
         id: mainScreen
     }
 }

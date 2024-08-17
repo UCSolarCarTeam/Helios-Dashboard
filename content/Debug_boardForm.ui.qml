@@ -11,13 +11,14 @@ import QtQuick.Controls 2.15
 Item {
     width: 1024
     height: 768
-
-    property alias button: button
-
-    Button {
-        id: button
-        x: 64
-        y: 64
-        text: qsTr("Button")
+    
+    
+    Rectangle {
+        id: rectangle
+        x: 182
+        y: 76
+        width: 637
+        height: 599
+        color: "#ffffff"
     }
 }
