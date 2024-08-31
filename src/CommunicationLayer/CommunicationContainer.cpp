@@ -1,12 +1,12 @@
 #include <QUdpSocket>
 
-#include "./DataLayer/DataContainer.h"
+#include "../DataLayer/DataContainer.h"
 #include "CommunicationContainer.h"
 #include "CommDeviceControl/CommDeviceManager.h"
 #include "JsonReceiver/JsonReceiver.h"
-#include "./BusinessLayer/BusinessContainer.h"
-#include "./InfrastructureLayer/InfrastructureContainer.h"
-#include "./InfrastructureLayer/Settings/I_Settings.h"
+#include "../BusinessLayer/BusinessContainer.h"
+#include "../InfrastructureLayer/InfrastructureContainer.h"
+#include "../InfrastructureLayer/Settings/I_Settings.h"
 
 class CommunicationContainerPrivate
 {

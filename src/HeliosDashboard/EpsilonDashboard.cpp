@@ -2,7 +2,7 @@
 
 #include <QQmlApplicationEngine>
 #include "../DataLayer/DataContainer.h"
-#include "src/CommunicationContainer.h"
+#include "src/CommunicationLayer/CommunicationContainer.h"
 #include "../BusinessLayer/BusinessContainer.h"
 #include "../PresenterLayer/PresenterContainer.h"
 //#include "/ViewLayer/ViewContainer.h"

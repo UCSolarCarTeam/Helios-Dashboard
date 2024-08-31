@@ -7,8 +7,8 @@
 #include <QScreen>
 #include <QQuickView>
 #include <QQuickWindow>
-#include "./CommDeviceControl/CommDeviceManager.h"
-#include "CommDeviceControl/InternetCommDevice.h"
+#include "CommunicationLayer/CommDeviceControl/CommDeviceManager.h"
+#include "CommunicationLayer/CommDeviceControl/InternetCommDevice.h"
 #include "HeliosDashboard/EpsilonDashboard.h"
 #include "BusinessLayer/DataPopulators/KeyMotorPopulator/KeyMotorPopulator.h"
 #include "BusinessLayer/DataPopulators/KeyMotorPopulator/I_KeyMotorPopulator.h"

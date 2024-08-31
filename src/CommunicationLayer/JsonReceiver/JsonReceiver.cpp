@@ -26,7 +26,7 @@
 
 
 #include "JsonReceiver.h"
-#include "src/CommDeviceControl/I_CommDevice.h"
+#include "src/CommunicationLayer/CommDeviceControl/I_CommDevice.h"
 
 JsonReceiver::JsonReceiver(I_AuxBmsPopulator& auxBmsPopulator,
                            I_BatteryPopulator& batteryPopulator,
