@@ -2,18 +2,18 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 import QtQuick 6.2
+import QtQuick.Controls
 import HeliosQMLDash
+import QtQuick.Window
 
-Window {
-    width: mainScreen.width
-    height: mainScreen.height
+Item {
+    width: 1920
+    height: 550
 
     visible: true
-    title: "HeliosQMLDash"
 
-    Screen01 {
+    Auxbms {
         id: mainScreen
     }
-
 }
 

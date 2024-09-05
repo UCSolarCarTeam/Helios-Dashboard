@@ -7,9 +7,20 @@ qt6_add_qml_module(content
     VERSION 1.0
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
-        App.qml
-        Screen01.ui.qml
-        DigitalSpeedComponenent.ui.qml
+    DriverControlsScreen.qml
+    DriverControls.ui.qml
+
     RESOURCES
         fonts/fonts.txt
+        SOURCES test.h test.cpp
+        QML_FILES MpptScreen.qml
+        QML_FILES FaultsScreen.qml
+        QML_FILES Mppt.ui.qml
+        QML_FILES Faults.ui.qml
+        QML_FILES MotorScreen.qml
+        QML_FILES Motor.ui.qml
+        QML_FILES BatteryScreen.qml
+        QML_FILES Battery.ui.qml
+        QML_FILES Auxbms.ui.qml
+        QML_FILES AuxbmsScreen.qml
 )
