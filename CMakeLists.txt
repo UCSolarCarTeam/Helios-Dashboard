@@ -7,7 +7,7 @@ project(HeliosQMLDashApp LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick Mqtt)
+find_package(Qt6 6.2 REQUIRED COMPONENTS Core Widgets Gui Qml Quick Mqtt)
 
 if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
     qt_standard_project_setup()
