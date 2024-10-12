@@ -39,7 +39,7 @@ target_link_libraries(HeliosQMLDashApp PRIVATE
 )
 
 if (BUILD_QDS_COMPONENTS)
-    include(${CMAKE_CURRENT_SOURCE_DIR}/qmlcomponents)
+    include(~/Desktop/yocto/build/tmp/work/cortexa72-poky-linux/heliosdashboardapp/1.0+gitAUTOINC+3398040e12-r0/git/qmlcomponents)
 endif()
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/qmlmodules)
