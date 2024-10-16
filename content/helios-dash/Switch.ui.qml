@@ -35,9 +35,9 @@ Rectangle {
         lineHeightMode: Text.FixedHeight
         wrapMode: Text.WordWrap
         anchors.leftMargin: 50
+        anchors.topMargin: 14
         font.capitalization: Font.AllUppercase
         font.family: "Work Sans"
-        anchors.topMargin: 14
         font.weight: Font.DemiBold
     }
 
@@ -56,9 +56,9 @@ Rectangle {
         lineHeightMode: Text.FixedHeight
         wrapMode: Text.WordWrap
         anchors.leftMargin: 15
+        anchors.topMargin: 14
         font.capitalization: Font.AllUppercase
         font.family: "Work Sans"
-        anchors.topMargin: 14
         font.weight: Font.DemiBold
     }
     states: [
@@ -68,19 +68,6 @@ Rectangle {
         State {
             name: "state_state_off_disabled_Disabled_True"
             extend: "state_state_on_Disabled_False"
-
-            PropertyChanges {
-                target: on
-                opacity: 0
-                color: "#ffffff"
-                anchors.leftMargin: 7
-            }
-
-            PropertyChanges {
-                target: ellipse
-                source: "assets/ellipse_state_state_off_disabled_Disabled_True.png"
-                anchors.leftMargin: 7
-            }
 
             PropertyChanges {
                 target: off
@@ -95,15 +82,23 @@ Rectangle {
                 border.color: "#a5abb3"
                 border.width: 1.62745
             }
+
+            PropertyChanges {
+                target: on
+                opacity: 0
+                color: "#ffffff"
+                anchors.leftMargin: 7
+            }
+
+            PropertyChanges {
+                target: ellipse
+                source: "assets/ellipse_state_state_off_disabled_Disabled_True.png"
+                anchors.leftMargin: 7
+            }
         },
         State {
             name: "state_state_on_disabled_Disabled_True"
             extend: "state_state_on_Disabled_False"
-
-            PropertyChanges {
-                target: ellipse
-                source: "assets/ellipse_state_state_on_disabled_Disabled_True.png"
-            }
 
             PropertyChanges {
                 target: off
@@ -117,22 +112,15 @@ Rectangle {
                 color: "#a8cbbc"
                 radius: 29.29412
             }
+
+            PropertyChanges {
+                target: ellipse
+                source: "assets/ellipse_state_state_on_disabled_Disabled_True.png"
+            }
         },
         State {
             name: "state_state_off_Disabled_False"
             extend: "state_state_on_Disabled_False"
-
-            PropertyChanges {
-                target: on
-                color: "#00ffffff"
-                anchors.leftMargin: 7
-            }
-
-            PropertyChanges {
-                target: ellipse
-                source: "assets/ellipse_state_state_off_Disabled_False.png"
-                anchors.leftMargin: 7
-            }
 
             PropertyChanges {
                 target: off
@@ -145,6 +133,18 @@ Rectangle {
                 color: "transparent"
                 border.color: "#ffffff"
                 border.width: 1.62745
+            }
+
+            PropertyChanges {
+                target: on
+                color: "#00ffffff"
+                anchors.leftMargin: 7
+            }
+
+            PropertyChanges {
+                target: ellipse
+                source: "assets/ellipse_state_state_off_Disabled_False.png"
+                anchors.leftMargin: 7
             }
         }
     ]
