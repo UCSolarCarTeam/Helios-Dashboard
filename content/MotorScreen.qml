@@ -7,8 +7,8 @@ import HeliosQMLDash
 import QtQuick.Window
 
 Item {
-    width: 1920
-    height: 550
+    width: 3215
+    height: 911
 
     visible: true
 

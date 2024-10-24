@@ -7,8 +7,8 @@ import content
 
 ApplicationWindow {
     visible: true
-    width: 1920
-    height: 550
+    width: 3215
+    height: 911
 
     StackView {
         id: stackView
