@@ -38,9 +38,9 @@ target_link_libraries(HeliosQMLDashApp PRIVATE
     Qt6::Mqtt
 )
 
-# if (BUILD_QDS_COMPONENTS)
-#     include(${CMAKE_CURRENT_SOURCE_DIR}/qmlcomponents)
-# endif()
+if (BUILD_QDS_COMPONENTS)
+    include(${CMAKE_CURRENT_SOURCE_DIR}/qmlcomponents)
+endif()
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/qmlmodules)
 
