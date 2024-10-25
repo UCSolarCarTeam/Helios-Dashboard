@@ -14,7 +14,7 @@ ApplicationWindow {
         id: stackView
         anchors.top: parent.top
 
-        initialItem: "../content/DriverControlsScreen.qml"
+        initialItem: "../content/debug_screens/DriverControlsScreen.qml"
     }
     ToolBar {
         id: toolBar
@@ -28,7 +28,7 @@ ApplicationWindow {
             x: 0
             y: 0
             text: qsTr("Control")
-            onClicked: stackView.push("../content/DriverControlsScreen.qml")
+            onClicked: stackView.push("../content/debug_screens/DriverControlsScreen.qml")
 
             ToolSeparator {
                 x: 77
@@ -40,7 +40,7 @@ ApplicationWindow {
             x: 110
             y: 0
             text: qsTr("MPPT")
-            onClicked: stackView.push("../content/MpptScreen.qml")
+            onClicked: stackView.push("../content/debug_screens/MpptScreen.qml")
 
             ToolSeparator {
 
@@ -53,7 +53,7 @@ ApplicationWindow {
             x: 180
             y: 0
             text: qsTr("Faults")
-            onClicked: stackView.push("../content/FaultsScreen.qml")
+            onClicked: stackView.push("../content/debug_screens/FaultsScreen.qml")
 
             ToolSeparator {
 
@@ -66,7 +66,7 @@ ApplicationWindow {
             x: 240
             y: 0
             text: qsTr("Motor")
-            onClicked: stackView.push("../content/MotorScreen.qml")
+            onClicked: stackView.push("../content/debug_screens/MotorScreen.qml")
 
             ToolSeparator {
 
@@ -79,7 +79,7 @@ ApplicationWindow {
             x: 300
             y: 0
             text: qsTr("Battery")
-            onClicked: stackView.push("../content/BatteryScreen.qml")
+            onClicked: stackView.push("../content/debug_screens/BatteryScreen.qml")
 
             ToolSeparator {
 
@@ -92,7 +92,7 @@ ApplicationWindow {
             x: 380
             y: 0
             text: qsTr("Aux BMS")
-            onClicked: stackView.push("../content/AuxbmsScreen.qml")
+            onClicked: stackView.push("../content/debug_screens/AuxbmsScreen.qml")
 
             ToolSeparator {
 

@@ -14,6 +14,20 @@ Item {
 
     DriverControls {
         id: mainScreen
+
+        Loader {
+            id: pageLoader
+        }
+
+        Button {
+            id: button
+            x: 57
+            y: 600
+            text: qsTr("Load Race")
+            onClicked: {
+                pageLoader.source = "../race_screen/Dashboard.ui.qml"
+            }
+        }
     }
 }
 

@@ -7,126 +7,25 @@ qt6_add_qml_module(content
     VERSION 1.0
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
-    DriverControlsScreen.qml
-    DriverControls.ui.qml
-
+    debug_screens/Auxbms.ui.qml
+    debug_screens/AuxbmsScreen.qml
+    debug_screens/Battery.ui.qml
+    debug_screens/BatteryScreen.qml
+    debug_screens/DriverControls.ui.qml
+    debug_screens/DriverControlsScreen.qml
+    debug_screens/Faults.ui.qml
+    debug_screens/FaultsScreen.qml
+    debug_screens/Mppt.ui.qml
+    debug_screens/MpptScreen.qml
+    race_screen/BackPlate.qml
+    race_screen/Dashboard.ui.qml
+    race_screen/Switch.ui.qml
+    race_screen/Component_1.ui.qml
     RESOURCES
         fonts/fonts.txt
-        assets/gauge_cluster_merged.png
-        assets/r_N_D.png
-        assets/ellipse_273.png
-        assets/ellipse_303.png
-        assets/ellipse_343.png
-        assets/ellipse_333.png
-        assets/ellipse_403.png
-        assets/ellipse_393.png
-        assets/ellipse_383.png
-        assets/ellipse_373.png
-        assets/ellipse_363.png
-        assets/ellipse_323.png
-        assets/ellipse_283.png
-        assets/ellipse_413.png
-        assets/ellipse_263.png
-        assets/ellipse_272.png
-        assets/thermometer_merged.png
-        assets/ellipse_302.png
-        assets/ellipse_342.png
-        assets/ellipse_332.png
-        assets/ellipse_402.png
-        assets/ellipse_392.png
-        assets/ellipse_382.png
-        assets/ellipse_372.png
-        assets/ellipse_362.png
-        assets/ellipse_322.png
-        assets/ellipse_282.png
-        assets/ellipse_472.png
-        assets/ellipse_462.png
-        assets/ellipse_452.png
-        assets/ellipse_582.png
-        assets/ellipse_522.png
-        assets/ellipse_572.png
-        assets/ellipse_532.png
-        assets/ellipse_562.png
-        assets/ellipse_512.png
-        assets/ellipse_552.png
-        assets/ellipse_502.png
-        assets/ellipse_492.png
-        assets/ellipse_482.png
-        assets/ellipse_442.png
-        assets/ellipse_412.png
-        assets/ellipse_262.png
-        assets/ellipse_271.png
-        assets/battery_consumption_merged.png
-        assets/ellipse_261.png
-        assets/ellipse_301.png
-        assets/ellipse_341.png
-        assets/ellipse_331.png
-        assets/ellipse_401.png
-        assets/ellipse_391.png
-        assets/ellipse_381.png
-        assets/ellipse_371.png
-        assets/ellipse_361.png
-        assets/ellipse_321.png
-        assets/ellipse_281.png
-        assets/vector1.png
-        assets/ellipse_471.png
-        assets/ellipse_461.png
-        assets/ellipse_451.png
-        assets/ellipse_581.png
-        assets/ellipse_521.png
-        assets/ellipse_571.png
-        assets/ellipse_531.png
-        assets/ellipse_561.png
-        assets/ellipse_511.png
-        assets/ellipse_551.png
-        assets/ellipse_501.png
-        assets/ellipse_491.png
-        assets/ellipse_481.png
-        assets/ellipse_441.png
-        assets/ellipse_411.png
-        assets/ellipse_27.png
-        assets/motor_temperature_merged.png
-        assets/ellipse_28.png
-        assets/vector.png
-        assets/ellipse_30.png
-        assets/ellipse_34.png
-        assets/ellipse_33.png
-        assets/ellipse_40.png
-        assets/ellipse_39.png
-        assets/ellipse_38.png
-        assets/ellipse_37.png
-        assets/ellipse_36.png
-        assets/ellipse_32.png
-        assets/ellipse_47.png
-        assets/ellipse_46.png
-        assets/ellipse_45.png
-        assets/ellipse_58.png
-        assets/ellipse_52.png
-        assets/ellipse_57.png
-        assets/ellipse_53.png
-        assets/ellipse_56.png
-        assets/ellipse_51.png
-        assets/ellipse_55.png
-        assets/ellipse_50.png
-        assets/ellipse_49.png
-        assets/ellipse_48.png
-        assets/ellipse_44.png
-        assets/ellipse_41.png
-        assets/ellipse_26.png
-        assets/ellipse_state_state_on_Disabled_False.png
+        assets/gauge_cluster_merged.png 
         assets/outer_backplate.png
         assets/inner_backplate.png
-        SOURCES test.h test.cpp
-        QML_FILES MpptScreen.qml
-        QML_FILES FaultsScreen.qml
-        QML_FILES Mppt.ui.qml
-        QML_FILES Faults.ui.qml
-        QML_FILES MotorScreen.qml
-        QML_FILES Motor.ui.qml
-        QML_FILES BatteryScreen.qml
-        QML_FILES Battery.ui.qml
-        QML_FILES Auxbms.ui.qml
-        QML_FILES AuxbmsScreen.qml
-        QML_FILES Switch.ui.qml
-        QML_FILES Component_1.ui.qml
+        QML_FILES debug_screens/Motor.ui.qml
+        QML_FILES debug_screens/MotorScreen.qml
 )
