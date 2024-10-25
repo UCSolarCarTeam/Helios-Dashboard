@@ -8,7 +8,7 @@ qt6_add_qml_module(content
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
     debug_screens/Auxbms.ui.qml
-    debug_screens/AuxbmsScreen.qml
+    debug_screens/MainScreen.ui.qml
     debug_screens/Battery.ui.qml
     debug_screens/BatteryScreen.qml
     debug_screens/DriverControls.ui.qml
@@ -28,4 +28,5 @@ qt6_add_qml_module(content
         assets/inner_backplate.png
         QML_FILES debug_screens/Motor.ui.qml
         QML_FILES debug_screens/MotorScreen.qml
+        QML_FILES debug_screens/AuxbmsScreen.qml
 )

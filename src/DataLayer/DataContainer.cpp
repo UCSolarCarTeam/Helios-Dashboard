@@ -27,6 +27,14 @@ DataContainer::DataContainer(QQmlApplicationEngine& engine)
 {
     engine.rootContext()->setContextProperty("keyMotorData_", keyMotorData_.data());
     engine.rootContext()->setContextProperty("driverControlsData_", driverControlsData_.data());
+    engine.rootContext()->setContextProperty("lightsData_", lightsData_.data());
+    engine.rootContext()->setContextProperty("mpptData_", mpptData_.data());
+    engine.rootContext()->setContextProperty("motorDetailsData_", motorDetailsData_.data());
+    engine.rootContext()->setContextProperty("motorFaultsData_", motorFaultsData_.data());
+    engine.rootContext()->setContextProperty("auxBmsData_", auxBmsData_.data());
+    engine.rootContext()->setContextProperty("batteryData_", batteryData_.data());
+    engine.rootContext()->setContextProperty("batteryFaultsData_", batteryFaultsData_.data());
+    engine.rootContext()->setContextProperty("ccsData_", ccsData_.data());
 }
 
 DataContainer::~DataContainer()
