@@ -5,11 +5,10 @@ import QtQuick.Controls
 import HeliosQMLDash
 import QtQuick.Window
 
-
 Rectangle {
     id: dashboard
-    width: 3215
-    height: 911
+    width: parent.width
+    height: parent.height
 
     visible: true
 

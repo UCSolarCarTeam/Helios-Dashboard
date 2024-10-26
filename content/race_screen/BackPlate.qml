@@ -11,8 +11,8 @@ import QtQuick.Controls 2.15
 
 Rectangle {
     id: backPlate
-    width: 3215
-    height: 911
+    width: 1920
+    height: 550
     color: "transparent"
 
 
@@ -57,8 +57,8 @@ Rectangle {
         id: backplate_item
         x: 0
         y: 0
-        width: 3215
-        height: 910
+        width: 1920
+        height: 550
         Image {
             id: inner_backplate
             anchors.left: parent.left
@@ -87,6 +87,8 @@ Rectangle {
         id: gauge_cluster_merged
         x: 49
         y: 0
+        width: 1818
+        height: 550
         source: "../assets/gauge_cluster_merged.png"
     }
 }

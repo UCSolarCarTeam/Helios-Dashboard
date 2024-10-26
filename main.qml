@@ -8,8 +8,8 @@ import QtQuick.Window
 
 ApplicationWindow {
     visible: true
-    width: 3215
-    height: 911
+    width: 1920
+    height: 550
 
     Loader {
         id: pageLoader
