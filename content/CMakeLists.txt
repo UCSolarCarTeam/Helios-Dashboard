@@ -7,20 +7,26 @@ qt6_add_qml_module(content
     VERSION 1.0
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
-    DriverControlsScreen.qml
-    DriverControls.ui.qml
-
+    debug_screens/Auxbms.ui.qml
+    debug_screens/MainScreen.ui.qml
+    debug_screens/Battery.ui.qml
+    debug_screens/BatteryScreen.qml
+    debug_screens/DriverControls.ui.qml
+    debug_screens/DriverControlsScreen.qml
+    debug_screens/Faults.ui.qml
+    debug_screens/FaultsScreen.qml
+    debug_screens/Mppt.ui.qml
+    debug_screens/MpptScreen.qml
+    race_screen/BackPlate.qml
+    race_screen/Dashboard.ui.qml
+    race_screen/Switch.ui.qml
+    race_screen/Component_1.ui.qml
     RESOURCES
         fonts/fonts.txt
-        SOURCES test.h test.cpp
-        QML_FILES MpptScreen.qml
-        QML_FILES FaultsScreen.qml
-        QML_FILES Mppt.ui.qml
-        QML_FILES Faults.ui.qml
-        QML_FILES MotorScreen.qml
-        QML_FILES Motor.ui.qml
-        QML_FILES BatteryScreen.qml
-        QML_FILES Battery.ui.qml
-        QML_FILES Auxbms.ui.qml
-        QML_FILES AuxbmsScreen.qml
+        assets/gauge_cluster_merged.png 
+        assets/outer_backplate.png
+        assets/inner_backplate.png
+        QML_FILES debug_screens/Motor.ui.qml
+        QML_FILES debug_screens/MotorScreen.qml
+        QML_FILES debug_screens/AuxbmsScreen.qml
 )
