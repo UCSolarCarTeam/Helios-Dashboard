@@ -23,4 +23,8 @@ Rectangle {
         x: 861
         y: 138
     }
+
+    Loader {
+        id: pageLoader
+    }
 }
