@@ -7,8 +7,8 @@ import QtQuick.Window
 
 Rectangle {
     id: dashboard
-    width: parent.width
-    height: parent.height
+    width: 1920
+    height: 550
 
     visible: true
 
@@ -16,5 +16,15 @@ Rectangle {
         id: mainRect
         x: -18
         y: 0
+    }
+
+    CameraScreen {
+        id: cameraScreen
+        x: 861
+        y: 138
+    }
+
+    Loader {
+        id: pageLoader
     }
 }
