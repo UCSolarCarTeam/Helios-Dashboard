@@ -5,7 +5,7 @@ import QtMultimedia
 Frame {
     id: root
     visible: true
-    width: 1000
+    width: 800
     height: 300
 
     property bool isRecording: false
