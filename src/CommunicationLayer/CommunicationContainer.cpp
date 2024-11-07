@@ -1,5 +1,5 @@
 #include <QUdpSocket>
-
+#include <QQmlContext>
 #include "../DataLayer/DataContainer.h"
 #include "CommunicationContainer.h"
 #include "CommDeviceControl/CommDeviceManager.h"
@@ -13,11 +13,13 @@ class CommunicationContainerPrivate
 
 public:
     CommunicationContainerPrivate(BusinessContainer& businessContainer,
-                                  InfrastructureContainer& infrastructureContainer)
+                                  InfrastructureContainer& infrastructureContainer,
+                                  QQmlApplicationEngine& engine)
         : commDeviceManager_(infrastructureContainer.settings().queue(),
                              infrastructureContainer.settings().ipAddress(),
                              infrastructureContainer.settings().port(),
-                             infrastructureContainer.settings().exchange())
+                             infrastructureContainer.settings().exchange()
+                             )
         , jsonReceiver_(businessContainer.auxBmsPopulator(),
                         businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
@@ -30,15 +32,18 @@ public:
                         businessContainer.motorFaultsPopulator(),
                         businessContainer.communicationsMonitoringService(),
                         infrastructureContainer.settings().logging())
+        , engine_(&engine)
     {
         QObject::connect(&commDeviceManager_, SIGNAL(dataReceived(QByteArray)), &jsonReceiver_, SLOT(handleIncomingData(QByteArray)));
+        engine.rootContext()->setContextProperty("commDeviceManagerData", &commDeviceManager_);
     }
     CommDeviceManager commDeviceManager_;
     JsonReceiver jsonReceiver_;
+    QQmlApplicationEngine engine_;
 };
 
-CommunicationContainer::CommunicationContainer(BusinessContainer& businessContainer, InfrastructureContainer& infrastructureContainer)
-    : impl_(new CommunicationContainerPrivate(businessContainer, infrastructureContainer))
+CommunicationContainer::CommunicationContainer(BusinessContainer& businessContainer, InfrastructureContainer& infrastructureContainer, QQmlApplicationEngine& engine)
+    : impl_(new CommunicationContainerPrivate(businessContainer, infrastructureContainer, engine))
 {
 }
 

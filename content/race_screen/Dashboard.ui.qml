@@ -27,4 +27,10 @@ Rectangle {
     Loader {
         id: pageLoader
     }
+
+    ConsoleScreen {
+        id: consoleScreen
+        x: 461
+        y: 138
+    }
 }

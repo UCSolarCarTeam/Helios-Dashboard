@@ -67,7 +67,7 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv, QQmlApplicationEngine
     //QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 
     //viewContainer_.reset(new ViewContainer(*presenterContainer_, mode, isWindowed)); //pass in a third boolean variable
-    communicationContainer_.reset(new CommunicationContainer(*businessContainer_, *infrastructureContainer_));
+    communicationContainer_.reset(new CommunicationContainer(*businessContainer_, *infrastructureContainer_, engine));
 }
 
 EpsilonDashboard::~EpsilonDashboard()

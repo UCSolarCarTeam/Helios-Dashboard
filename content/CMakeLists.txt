@@ -30,4 +30,5 @@ qt6_add_qml_module(content
         QML_FILES debug_screens/MotorScreen.qml
         QML_FILES debug_screens/AuxbmsScreen.qml
         QML_FILES race_screen/CameraScreen.qml
+        QML_FILES race_screen/ConsoleScreen.qml
 )

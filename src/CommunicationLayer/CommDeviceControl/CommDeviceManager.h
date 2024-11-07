@@ -4,6 +4,7 @@ class QIODevice;
 class QUdpSocket;
 
 #include "CommDefines.h"
+#include <QQmlApplicationEngine>
 #include "I_CommDevice.h"
 #include "InternetCommDevice.h"
 
@@ -13,7 +14,6 @@ class CommDeviceManager : public I_CommDevice
 public:
     CommDeviceManager(/*AmqpClient::Channel::ptr_t channel,*/ QString queueName, QString ipAddress, quint16 port, QString exchange);
     virtual ~CommDeviceManager();
-
     void connectToDevice(CommDefines::Type type);
     void disconnectFromDevices();
 
