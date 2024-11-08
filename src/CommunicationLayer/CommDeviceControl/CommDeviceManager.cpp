@@ -43,9 +43,11 @@ void CommDeviceManager::handleJsonDataIncoming(const QByteArray &message)
 
         QString timestamp = jsonObj.value("TimeStamp").toString();
 
+        QByteArray timestampByteArray = timestamp.toUtf8();
+
         qDebug() << message;
 
-        emit dataReceived(message);
+        emit dataReceived(timestampByteArray);
     }
     else
     {

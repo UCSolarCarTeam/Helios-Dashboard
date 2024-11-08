@@ -17,7 +17,7 @@ Frame {
     Connections {
         target: commDeviceManagerData
         onDataReceived: {
-            consoleMessage.text = message;
+            consoleMessage.text = data;
         }
     }
 
