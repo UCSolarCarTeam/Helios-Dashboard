@@ -10,17 +10,40 @@ Frame {
 
     property bool isRecording: false
 
+    onVisibleChanged: {
+        if (root.visible){
+            logVideoInputs();
+        }
+    }
+
+    function logVideoInputs() {
+            console.log("Listing available video inputs:");
+            if (mediaDevices.videoInputs.length === 0) {
+                console.log("No video inputs available.");
+                return;
+            }
+
+            for (var i = 0; i < mediaDevices.videoInputs.length; i++) {
+                var device = mediaDevices.videoInputs[i];
+                console.log("Device " + (i + 1) + ": " + device.description + " (Id: " + device.id + ")");
+            }
+    }
+
+    Component.onCompleted: {
+        logVideoInputs();
+    }
+
     MediaDevices {
         id: mediaDevices
         onVideoInputsChanged: {
-                    if (mediaDevices.videoInputs.length > 0) {
-                        // Optionally handle changes to the available video inputs here
-                        console.log("Webcam is available");
-                    } else {
-                        console.log("No webcam found");
-                        currentCamera.cameraDevice = mediaDevices.defaultVideoInput
-                    }
-                }
+            if (mediaDevices.videoInputs.length > 0) {
+                // Optionally handle changes to the available video inputs here
+                console.log("Webcam is available");
+            } else {
+                console.log("No webcam found");
+                currentCamera.cameraDevice = mediaDevices.defaultVideoInput
+            }
+        }
     }
 
     CaptureSession {

@@ -24,6 +24,12 @@ Rectangle {
         y: 138
     }
 
+    NotificationPanel {
+        id: notificationPanel
+        x: 300
+        y: 100
+    }
+
     Loader {
         id: pageLoader
     }
